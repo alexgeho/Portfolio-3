@@ -1,4 +1,6 @@
 import './About.scss'
+import avtar1 from '../../assets/memoji-peace-mini-wite.png';
+import avtar2 from '../../assets/memoji-peace-mini.png';
 
 const infoData = [
   {
@@ -6,14 +8,14 @@ const infoData = [
     title: 'Open for Cooperation',
     role: 'Fullstack Developer',
     text: 'Interested in working together? I’m available to discuss backend, frontend, and full-stack roles, as well as freelance projects. My focus is always on code quality, scalable architecture, and finding the right solution for complex problems.',
-    image: '/assets_old/hero/Jag%20Blu.jpg'
+    image: avtar1
   },
   {
     id: 2,
     title: 'Technical Focus',
     role: 'Core Principles',
     text: 'This portfolio demonstrates my commitment to modern web standards:\n- Semantic & Accessible HTML\n- Modular CSS/SCSS Architecture\n- Clean, Maintainable TypeScript Code\n- User-Centric UI/UX Design',
-    image: '/assets_old/hero/JagGrey.png'
+    image: avtar2
   }
 ]
 
