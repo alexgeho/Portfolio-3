@@ -1,0 +1,301 @@
+@import '../../styles/variables';
+
+.projects {
+  padding: 80px 0;
+
+  &__header {
+    margin-bottom: 60px;
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $text-secondary;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $text-primary;
+    }
+  }
+
+  &__btn-view {
+    background: $text-primary;
+    color: #ffffff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform $transition, opacity $transition;
+    display: inline-block;
+
+    &:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+}
+
+/* --- Настоящая плоская бесконечная лента --- */
+.projects__carousel-container {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y; /* Разрешает вертикальный скролл страницы поверх карусели */
+  padding: 20px 0;
+  user-select: none;
+
+  /* Гениальный трюк: вычисляем отступ слева, чтобы карточка всегда была строго по центру экрана */
+  padding-left: calc(50% - 42.5vw); /* Для телефона (карточка 85vw) */
+  
+  @media (min-width: $tablet) { 
+    padding-left: calc(50% - 22.5vw); /* Для планшета (карточка 45vw) */
+  }
+  @media (min-width: $desktop) { 
+    padding-left: calc(50% - 16.666vw); /* Для ПК (карточка 33.3vw) */
+  }
+
+  &:active { cursor: grabbing; }
+}
+
+.projects__carousel-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.project-slide {
+  /* Ширина карточки вместе с визуальным отступом */
+  width: 85vw;
+  flex-shrink: 0;
+  padding: 0 12px; /* Создает зазор между карточками (24px суммарно) */
+  box-sizing: border-box;
+
+  @media(min-width: $tablet) { width: 45vw; }
+  @media(min-width: $desktop) { width: 33.333vw; }
+}
+
+/* --- Внутренняя Карточка --- */
+.project-banner-card {
+  border-radius: 20px; /* Вернули легкое скругление для красоты, если хочешь прямые углы - поставь 0 */
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  background-color: $bg-card;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  pointer-events: auto; /* Возвращаем кликабельность кнопке */
+
+  &__img-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background-color: #e0e0e0;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__info {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid $border-color;
+  }
+
+  &__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+    color: $text-primary;
+  }
+
+  &__desc {
+    font-size: 1rem;
+    margin: 0;
+    color: $text-secondary;
+    line-height: 1.4;
+  }
+
+  &__btn {
+    align-self: flex-start;
+    margin-top: auto;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $accent-blue;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+/* --- Индикаторы (Точки) --- */
+.projects__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    padding: 0;
+
+    &.active {
+      background-color: $text-primary;
+      transform: scale(1.3);
+    }
+
+    &:hover:not(.active) {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+/* Модальное окно (Оставили без изменений) */
+.projects-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.projects-modal-container {
+  background-color: $bg-card;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.projects-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background-color 0.2s;
+  z-index: 10;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #f5f5f5;
+  }
+}
+
+.projects-modal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.projects-modal-content {
+  padding: 40px;
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.projects-modal-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: $text-primary;
+  margin-bottom: 16px;
+}
+
+.projects-modal-desc {
+  font-size: 1.1rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.projects-modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+
+  .detail-block {
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $text-primary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 1.05rem;
+      color: $text-secondary;
+      line-height: 1.5;
+    }
+  }
+}
+
+.projects-modal-link {
+  display: inline-block;
+  background-color: $accent-blue;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s, background-color 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: darken($accent-blue, 5%);
+  }
+}

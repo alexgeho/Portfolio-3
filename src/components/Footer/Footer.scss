@@ -1,0 +1,247 @@
+@import '../../styles/variables';
+
+.footer {
+  padding: 80px 0 120px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__cta {
+    text-align: center;
+    padding: 60px 0 20px;
+  }
+
+  &__label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-secondary;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: $text-primary;
+    margin-bottom: 32px;
+
+    @media (min-width: $tablet) {
+      font-size: 5rem;
+    }
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    background-color: $accent-blue;
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 20px 48px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: inline-block;
+    width: 100%;
+
+    @media (min-width: $tablet) {
+      width: auto;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @media (min-width: $tablet) {
+      grid-template-columns: 1fr 1.5fr;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__contact-card {
+    background-color: $bg-card;
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform $transition;
+    flex-grow: 1;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  &__contact-label {
+    font-size: 1rem;
+    color: $text-secondary;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  &__contact-value {
+    font-size: 1.15rem;
+    color: $text-primary;
+    font-weight: 700;
+    word-break: break-word;
+
+    @media (min-width: $tablet) {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* --- Возвращенный классный дизайн блока About --- */
+  &__about {
+    background-color: $bg-card;
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: 250px;
+
+    @media (min-width: $tablet) {
+      padding: 60px 40px;
+    }
+  }
+
+  &__about-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $text-primary;
+    position: relative;
+    z-index: 2;
+    max-width: 65%;
+    margin: 0;
+
+    @media (min-width: $tablet) {
+      font-size: 2rem;
+    }
+
+    span {
+      font-weight: 500;
+      color: $text-secondary;
+    }
+  }
+
+  &__about-img {
+    position: absolute;
+    bottom: -10px;
+    right: -20px;
+    height: 220px;
+    width: auto;
+    z-index: 1;
+    object-fit: contain;
+
+    @media (min-width: $tablet) {
+      height: 280px;
+      right: 0;
+    }
+  }
+
+  /* --- Нижняя панель --- */
+  &__bottom {
+    background-color: $bg-card;
+    border-radius: 24px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__menus {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (min-width: $tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__menu-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: flex-start;
+
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  &__menu-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $text-secondary;
+  }
+
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    a {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: $text-primary;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $accent-blue;
+      }
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 24px;
+
+    p, a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $text-secondary;
+    }
+
+    a {
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $text-primary;
+      }
+    }
+  }
+}
