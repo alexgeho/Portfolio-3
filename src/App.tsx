@@ -49,7 +49,7 @@ export default function App() {
     const simpleSelectors = [
       '.hero__title', '.hero__marquee-wrapper',
       '.section-label', '.section-title', '.projects__btn-view',
-      '.projects__dots', '.footer__cta', '.footer__bottom'
+      '.projects__dots', '.footer__cta', '.footer__contact-card', '.footer__bottom'
     ];
 
     const cascadeSelectors = [

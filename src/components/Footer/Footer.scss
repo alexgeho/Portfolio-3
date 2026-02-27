@@ -60,20 +60,15 @@
     }
   }
 
-  &__grid {
+  /* --- Карточки контактов --- */
+  &__contacts {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
 
     @media (min-width: $tablet) {
-      grid-template-columns: 1fr 1.5fr;
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
-
-  &__contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
   }
 
   &__contact-card {
@@ -87,7 +82,6 @@
     justify-content: center;
     text-align: center;
     transition: transform $transition;
-    flex-grow: 1;
 
     &:hover {
       transform: translateY(-4px);
@@ -112,34 +106,41 @@
     }
   }
 
-  /* --- Возвращенный классный дизайн блока About --- */
-  &__about {
-    background-color: $bg-card;
-    border-radius: 24px;
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    min-height: 250px;
+  /* --- Двухколоночная сетка для About и Меню --- */
+  &__info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
 
     @media (min-width: $tablet) {
-      padding: 60px 40px;
+      grid-template-columns: 1fr 2fr;
+    }
+    @media (min-width: $desktop) {
+      grid-template-columns: 1.2fr 3fr;
     }
   }
 
+  /* --- Вертикальная карточка About --- */
+  &__about {
+    background-color: $bg-card;
+    border-radius: 24px;
+    padding: 40px 24px 0 24px; /* Убрали паддинг снизу, чтобы картинка стояла на полу */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
   &__about-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.4;
     color: $text-primary;
-    position: relative;
-    z-index: 2;
-    max-width: 65%;
-    margin: 0;
+    margin-bottom: 32px;
 
-    @media (min-width: $tablet) {
-      font-size: 2rem;
+    @media (min-width: $desktop) {
+      font-size: 1.5rem;
     }
 
     span {
@@ -149,27 +150,24 @@
   }
 
   &__about-img {
-    position: absolute;
-    bottom: -10px;
-    right: -20px;
-    height: 220px;
-    width: auto;
-    z-index: 1;
-    object-fit: contain;
+    width: 140px;
+    height: auto;
+    margin-top: auto; /* Выталкиваем картинку вниз */
+    display: block;
 
     @media (min-width: $tablet) {
-      height: 280px;
-      right: 0;
+      width: 180px;
     }
   }
 
-  /* --- Нижняя панель --- */
+  /* --- Широкая панель Меню --- */
   &__bottom {
     background-color: $bg-card;
     border-radius: 24px;
     padding: 40px 32px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 40px;
   }
 
