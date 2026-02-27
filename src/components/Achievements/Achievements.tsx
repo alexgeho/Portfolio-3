@@ -1,4 +1,7 @@
 import './Achievements.scss'
+import waving from '../../assets/achievements/memoji-wave.png';
+import whisper from '../../assets/achievements/memoji-whisper.png';
+import chefKiss from '../../assets/achievements/memoji-chef-kiss.png';
 
 export default function Achievements() {
   return (
@@ -12,7 +15,7 @@ export default function Achievements() {
         <div className="bento-stack">
           
           <div className="bento-card bento-card--img-left">
-            <img src="/assets/08VPiyjhDPjl59RnZgvrOoNOwc.png" alt="Waving" className="bento-card__img" />
+            <img src={waving} alt="waving" className="bento-card__img" />
             <div className="bento-card__content">
               <h3>6+</h3>
               <p>Fullstack Projects</p>
@@ -24,11 +27,11 @@ export default function Achievements() {
               <h3>Clean</h3>
               <p>Architecture Focus</p>
             </div>
-            <img src="/assets/3mZSytZXTHG3uxHa3g1UAfbm1Q.png" alt="Call" className="bento-card__img" />
+            <img src={whisper}alt="whisper" className="bento-card__img" />
           </div>
 
           <div className="bento-card bento-card--img-left">
-            <img src="/assets/YOx3t0OLKaZxlx6w7xuHGanM0.png" alt="Thinking" className="bento-card__img" />
+            <img src={chefKiss} alt="chefKiss" className="bento-card__img" />
             <div className="bento-card__content">
               <h3>100%</h3>
               <p>Scalable Web Solutions</p>
