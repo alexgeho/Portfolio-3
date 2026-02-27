@@ -1,4 +1,5 @@
 import './Footer.scss'
+import avatar from '../../assets/JagWite.png';
 
 export default function Footer() {
   const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -40,7 +41,7 @@ export default function Footer() {
               <span>I press buttons and<br/>interfaces happen.</span>
             </p>
             <img 
-              src="/assets_old/hero/Jag%20Wite.png" 
+              src={avatar}
               alt="Alexander" 
               className="footer__about-img" 
             />
