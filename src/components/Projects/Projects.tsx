@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
 import './Projects.scss'
+import caseAvatar from '../../assets/JagWiteCuted.png'
+import project1 from '../../assets/projects/project1.png';
+import project2 from '../../assets/projects/project2.png';
+import project3 from '../../assets/projects/project3.png';
+import project4 from '../../assets/projects/project4.png';
+import project5 from '../../assets/projects/project5.png';
+import project6 from '../../assets/projects/project6.png';
 
 interface Project {
   id: number
@@ -23,7 +30,7 @@ const projectsData: Project[] = [
     id: 1,
     title: 'ByggExp',
     description: 'Presentation website for a time tracking and project management platform with bold type and smooth navigation.',
-    image: '/assets_old/projects/project1.png',
+    image: project1,
     link: 'https://alexgeho.github.io/ByggExp.se/',
     type: 'Product Website',
     year: '2023',
@@ -39,7 +46,7 @@ const projectsData: Project[] = [
     id: 2,
     title: 'ByggExp Admin',
     description: 'Centralized admin panel for managing projects, tasks, teams, and tracking metrics.',
-    image: '/assets_old/projects/project2.png',
+    image: project2,
     link: null,
     type: 'Admin Dashboard',
     year: '2023',
@@ -51,7 +58,7 @@ const projectsData: Project[] = [
     id: 3,
     title: 'ByggExp App',
     description: 'Desktop application for time tracking, task execution, and complete project control system.',
-    image: '/assets_old/projects/project3.png',
+    image: project3,
     link: null,
     type: 'Desktop App',
     year: '2023',
@@ -63,7 +70,7 @@ const projectsData: Project[] = [
     id: 4,
     title: 'AGRY AB',
     description: 'Webshop for prefabricated reinforcement elements with user auth, responsive UI, and admin dashboard.',
-    image: '/assets_old/projects/project4.png',
+    image: project4,
     link: 'https://alexgeho.github.io/js-intro-inl-1-webshop/',
     type: 'E-Commerce',
     year: '2022',
@@ -79,7 +86,7 @@ const projectsData: Project[] = [
     id: 5,
     title: 'Blogger Backend',
     description: 'Educational backend project focused on REST API development with NestJS and Clean Architecture.',
-    image: '/assets_old/projects/project5.png',
+    image: project5,
     link: null,
     type: 'REST API',
     year: '2024',
@@ -92,7 +99,7 @@ const projectsData: Project[] = [
     id: 6,
     title: 'Express Platform',
     description: 'Educational backend project built with Express and TypeScript focusing on RESTful principles.',
-    image: '/assets_old/projects/project6.png',
+    image: project6,
     link: null,
     type: 'Backend System',
     year: '2024',
@@ -103,7 +110,6 @@ const projectsData: Project[] = [
   }
 ]
 
-// Дублируем массив 3 раза, чтобы лента была бесконечной
 const extendedProjects = [...projectsData, ...projectsData, ...projectsData]
 
 export default function Projects() {
@@ -212,7 +218,7 @@ export default function Projects() {
                     <p>"{project.testimonial}"</p>
                     <div className="author">
                       {/* Используем общую аватарку для красоты */}
-                      <img src="/assets_old/hero/Jag%20Wite.png" alt="Author" />
+                      <img src={caseAvatar} alt="Author" />
                       <span>{project.testimonialAuthor}</span>
                     </div>
                   </div>
