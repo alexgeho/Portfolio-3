@@ -1,39 +1,54 @@
 import './Skills.scss'
+import react from '../../assets/skills/react.svg';
+import typeScript from '../../assets/skills/typescript.svg';
+import js from '../../assets/skills/js.svg';
+import html from '../../assets/skills/html.svg';
+import css from '../../assets/skills/css.svg';
+import nodeJs from '../../assets/skills/nodejs.svg';
+import nestJs from '../../assets/skills/nestjs.svg';
+import mongoDb from '../../assets/skills/mongodb.svg';
+import express from '../../assets/skills/expressjs.svg';
+import git from '../../assets/skills/git-hub.svg';
+import figma from '../../assets/skills/figma.svg';
+import docker from '../../assets/skills/docker.svg';
+import postman from '../../assets/skills/postman.svg';
+import notion from '../../assets/skills/notion.svg';
+
 
 const skillsData = [
   {
     category: 'Frontend',
     items: [
-      { name: 'React', desc: 'For building fast, interactive UIs', icon: '/assets_old/skills/techSkills/react.svg' },
-      { name: 'TypeScript', desc: 'Typed JavaScript for safer code', icon: '/assets_old/skills/techSkills/typescript.svg' },
-      { name: 'JavaScript', desc: 'Core web logic & DOM manipulation', icon: '/assets_old/skills/techSkills/js.svg' },
-      { name: 'HTML5', desc: 'Semantic markup & accessibility', icon: '/assets_old/skills/techSkills/html.svg' },
-      { name: 'CSS3 / SCSS', desc: 'Responsive styling & layouts', icon: '/assets_old/skills/techSkills/css.svg' }
+      { name: 'React', desc: 'For building fast, interactive UIs', icon: react},
+      { name: 'TypeScript', desc: 'Typed JavaScript for safer code', icon: typeScript },
+      { name: 'JavaScript', desc: 'Core web logic & DOM manipulation', icon: js },
+      { name: 'HTML5', desc: 'Semantic markup & accessibility', icon: html },
+      { name: 'CSS3 / SCSS', desc: 'Responsive styling & layouts', icon: css }
     ]
   },
   {
     category: 'Backend',
     items: [
-      { name: 'Node.js', desc: 'JavaScript runtime for servers', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-      { name: 'NestJS', desc: 'Scalable server-side applications', icon: '/assets_old/skills/techSkills/nestjs.svg' },
-      { name: 'Express', desc: 'Minimal framework for APIs', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
-      { name: 'MongoDB', desc: 'Flexible NoSQL database system', icon: '/assets_old/skills/techSkills/mongodb.svg' }
+      { name: 'Node.js', desc: 'JavaScript runtime for servers', icon: nodeJs },
+      { name: 'NestJS', desc: 'Scalable server-side applications', icon: nestJs },
+      { name: 'Express', desc: 'Minimal framework for APIs', icon: express },
+      { name: 'MongoDB', desc: 'Flexible NoSQL database system', icon: mongoDb }
     ]
   },
   {
     category: 'Tools & DevOps',
     items: [
       /* Вот здесь мы заменили иконку GitHub на темную версию из CDN */
-      { name: 'Git & GitHub', desc: 'Version control and collaboration', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
-      { name: 'Docker', desc: 'Containers for isolated environments', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-      { name: 'Postman', desc: 'API testing and documentation', icon: '/assets_old/skills/techSkills/postman.svg' }
+      { name: 'Git & GitHub', desc: 'Version control and collaboration', icon: git },
+      { name: 'Docker', desc: 'Containers for isolated environments', icon: docker },
+      { name: 'Postman', desc: 'API testing and documentation', icon: postman }
     ]
   },
   {
     category: 'Design & Workflow',
     items: [
-      { name: 'Figma', desc: 'Vector graphics and prototyping', icon: '/assets_old/skills/techSkills/figma.svg' },
-      { name: 'Notion', desc: 'Planning and docs in one place', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/notion/notion-original.svg' }
+      { name: 'Figma', desc: 'Vector graphics and prototyping', icon: figma },
+      { name: 'Notion', desc: 'Planning and docs in one place', icon: notion }
     ]
   }
 ]
