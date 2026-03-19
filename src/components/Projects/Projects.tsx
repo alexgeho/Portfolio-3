@@ -223,7 +223,7 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  {/* Название, описание и кнопка внизу */}
+                  {/* Title, description and button below */}
                   <h3 className="project-banner-card__title">{project.title}</h3>
                   <p className="project-banner-card__desc">{project.description}</p>
                   <button 
@@ -236,7 +236,7 @@ export default function Projects() {
                   </button>
                 </div>
 
-                {/* Правая колонка с картинкой */}
+                {/* Right col with img */}
                 <div className="project-banner-card__img-wrapper">
                   <img src={project.image} alt={project.title} className="project-banner-card__img" draggable={false} />
                 </div>
