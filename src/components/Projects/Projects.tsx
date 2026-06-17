@@ -210,10 +210,10 @@ export default function Projects() {
             <div className="project-slide" key={`${project.id}-${index}`}>
               <div className="project-banner-card">
                 
-                {/* Левая колонка с информацией */}
+                {/* Left col with img */}
                 <div className="project-banner-card__info">
                   
-                  {/* Отзыв (Testimonial) наверху */}
+                  {/* Testimonial */}
                   <div className="project-testimonial-mini">
                     <p>"{project.testimonial}"</p>
                     <div className="author">
