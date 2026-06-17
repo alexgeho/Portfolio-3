@@ -94,7 +94,6 @@
   background-color: $bg-card;
   display: flex;
   flex-direction: column;
-  height: 100%;
   pointer-events: auto;
   overflow: hidden;
 
@@ -106,7 +105,7 @@
     padding: 32px;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 0.8;
 
     @media (min-width: $tablet) {
       padding: 40px;
@@ -201,7 +200,7 @@
   }
 
   &__img-wrapper {
-    flex: 1.2; 
+    flex: 1.4; 
     overflow: hidden;
     background-color: #e0e0e0;
 
