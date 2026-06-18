@@ -62,61 +62,68 @@ const projectsData: Project[] = [
     id: 3,
     title: "ByggExp App",
     description:
-      "Desktop application for time tracking, task execution, and complete project control system.",
+      "Mobilapp för tidsrapportering, uppgiftshantering och projektstyrning. Integrerad med ByggExps adminpanel och backend.",
     image: project3,
     link: null,
-    type: "Desktop App",
     year: "2023",
     fullDescription: [
-      "Desktop application meant for time tracking, task execution, and complete project control system.",
-      "Directly connected to the main ByggExp infrastructure.",
+      "Mobilapplikation utvecklad för byggföretag med fokus på enkel rapportering och uppföljning direkt från arbetsplatsen.",
+      "Integrerad med ByggExps adminpanel, backend och databas för synkronisering av projekt-, personal- och verksamhetsdata i realtid.",
     ],
+    techStack: "React Native, MongoDB",
   },
   {
     id: 4,
     title: "AGRY AB",
     description:
-      "Webshop for prefabricated reinforcement elements with user auth, responsive UI, and admin dashboard.",
+      "Webbshop för prefabricerade armeringsprodukter med användarautentisering och responsiv design.",
     image: project4,
     link: "https://alexgeho.github.io/js-intro-inl-1-webshop/",
     type: "E-Commerce",
     year: "2022",
     fullDescription: [
-      "About the AGRYs - Webbshop. Agry Shop is a web-based platform for selling prefabricated reinforcement products for foundation construction in Sweden.",
+      "Webbshop utvecklad för försäljning av prefabricerade armeringsprodukter för grundläggningsprojekt i Sverige.",
+      "Implementerade produktkatalog, användarautentisering och administrationsfunktioner.",
     ],
     role: "Frontend development, UI layout and responsive design, Authentication flow (login / register UI), Admin panel structure, SCSS architecture.",
     keyFeatures:
-      "Product presentation website, User registration and login pages, Admin dashboard interface, Application download section, Responsive layout for desktop and mobile.",
+      "Produktkatalog, användarregistrering, inloggning, adminfunktioner och responsiv design.",
     techStack: "HTML5, SCSS, JavaScript",
     challenges:
-      "Challenge: Keep the UI scalable for future product features. Solution: Modular SCSS structure and reusable UI components. Challenge: Clear separation between public pages and admin area. Solution: Dedicated layouts and consistent navigation logic.",
+      "Skalbar frontendarkitektur med återanvändbara komponenter och tydlig struktur.",
   },
   {
     id: 5,
     title: "Blogger Backend",
-    description:
-      "Educational backend project focused on REST API development with NestJS and Clean Architecture.",
+    description: "REST API för hantering av användare, inlägg och kommentarer.",
     image: project5,
     link: null,
     type: "REST API",
     year: "2024",
     fullDescription: [
-      "Educational backend project focused on REST API development with NestJS.",
+      "Utvecklade ett REST API med autentisering, användare, inlägg och kommentarer.",
+      "Implementerade JWT-autentisering, CRUD-operationer, validering och API-dokumentation.",
     ],
-    techStack: "NestJS, TypeScript, REST API",
+    keyFeatures:
+      "JWT-autentisering, CRUD-operationer, användare, inlägg, kommentarer och Swagger-dokumentation.",
+    techStack: "NestJS, TypeScript, MongoDB, REST API",
+    challenges:
+      "Modulär arkitektur och tydlig separation av ansvar mellan API-komponenter.",
   },
   {
     id: 6,
     title: "Express Platform",
-    description:
-      "Educational backend project built with Express and TypeScript focusing on RESTful principles.",
+    description: "REST API byggt med Express och TypeScript.",
     image: project6,
     link: null,
     type: "Backend System",
     year: "2025",
     fullDescription: [
-      "Educational backend project built with Express and TypeScript focusing on robust backend architecture and typing.",
+      "Utvecklade ett REST API med fokus på routing, middleware och datavalidering.",
+      "Arbetade med typning, CRUD-operationer och strukturering av backendlogik.",
     ],
+    keyFeatures:
+      "Arbetade med CRUD-operationer, datavalidering och typsäker backendutveckling.",
     techStack: "Express, TypeScript, Node.js",
   },
 ];
