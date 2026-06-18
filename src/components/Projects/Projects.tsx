@@ -27,7 +27,7 @@ const projectsData: Project[] = [
     id: 1,
     title: "ByggExp",
     description:
-      "Presentation website for a time tracking and project management platform with bold type and smooth navigation.",
+      "Presentationswebbplats för ByggExp – en plattform för tidsrapportering, projektstyrning och fakturering. Integrerad med mobilapp och adminpanel.",
     image: project1,
     link: "https://byggexp.se/",
     type: "Product Website",
@@ -35,23 +35,23 @@ const projectsData: Project[] = [
     fullDescription:
       "Utvecklade en landningssida som fungerar som ingång till en mobilapp och adminpanel för tidsrapportering och projektstyrning. Implementerade användarregistrering med autentisering och datalagring (MongoDB). Fokuserade på responsiv design, prestanda och fullstack-funktionalitet.",
     role: "Full-stack development, UI and responsive layout, Authentication and admin panel, API and system architecture, Feature planning and customization.",
-    keyFeatures:
-      "Produktpresentation, användarregistrering och inloggning",
+    keyFeatures: "Produktpresentation, användarregistrering och inloggning",
     techStack: "Next.js, MongoDB",
-    challenges:
-      "Skalbar och modulär frontendarkitektur",
+    challenges: "Skalbar och modulär frontendarkitektur",
   },
   {
     id: 2,
     title: "ByggExp Admin",
     description:
-      "Centralized admin panel for managing projects, tasks, teams, and tracking metrics.",
+      "Adminpanel för ByggExp – hantering av projekt, uppgifter, dokumentation och personal i realtid. Integrerad med mobilapp och backend.",
     image: project2,
     link: null,
     type: "Admin Dashboard",
-    year: "2023",
+    year: "2026",
     fullDescription:
-      "Centralized admin panel for managing projects, tasks, teams, and tracking metrics. Built as an internal tool to oversee the entire ByggExp ecosystem.",
+      "Central kontrollpanel för byggföretag integrerad med mobilapp, backend, databas samt ekonomisystem som Visma och Fortnox. Samlar projekt, personal och verksamhetsdata i ett gemensamt system för effektiv administration och uppföljning.",
+    keyFeatures:
+      "Automatisk tidsrapportering, uppgifter med påminnelser, personalöversikt i realtid, fotodokumentation kopplad till projekt, projekt- och personalplanering, fakturor och offerter.",
   },
   {
     id: 3,
@@ -251,7 +251,7 @@ export default function Projects() {
                       }}
                       className="project-banner-card__btn-black"
                     >
-                      Read More
+                      Läs mer
                     </button>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export default function Projects() {
           <div
             className="projects-modal-container"
             onClick={(e) => e.stopPropagation()}
-            >
+          >
             <button className="projects-modal-close" onClick={closeModal}>
               ✕
             </button>
@@ -296,7 +296,6 @@ export default function Projects() {
 
               {/* MAIN MODAL CONTENT */}
               <div className="projects-modal-layout">
-
                 <div className="projects-modal-main-text">
                   <h2>{selectedProject.title}</h2>
                   <p className="main-desc">{selectedProject.fullDescription}</p>
@@ -332,7 +331,6 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-
             </div>
           </div>
         </div>
