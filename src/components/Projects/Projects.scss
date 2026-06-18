@@ -288,38 +288,13 @@
 }
 
 .projects-modal-layout {
-  display: grid;
+  display: flex;
   gap: 40px;
   margin-bottom: 40px;
 
-  @media (min-width: $tablet) {
-    grid-template-columns: 200px 1fr;
-  }
 }
 
-.projects-modal-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 
-  .spec {
-    span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: $text-secondary;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 4px;
-    }
-    p {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: $text-primary;
-      margin: 0;
-    }
-  }
-}
 
 .projects-modal-main-text {
   h2 {

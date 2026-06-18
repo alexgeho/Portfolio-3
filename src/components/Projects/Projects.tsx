@@ -34,16 +34,16 @@ const projectsData: Project[] = [
     image: project1,
     link: "https://alexgeho.github.io/ByggExp.se/",
     type: "Product Website",
-    year: "2023",
+    year: "2025",
     testimonial:
       "Smooth, stylish, and intuitive – exactly the kind of experience our users expect for project management.",
     testimonialAuthor: "CEO, ByggExp",
     fullDescription:
-      "About the ByggExp. Time Tracking & Management Platform for Construction. ByggExp is a presentation website for a time tracking and project management application. The website introduces the product, allows users to register, log in to the admin area, and download the desktop application.",
+      "Utvecklade en landningssida som fungerar som ingång till en mobilapp och adminpanel för tidsrapportering och projektstyrning. Implementerade användarregistrering med autentisering och datalagring (MongoDB). Fokuserade på responsiv design, prestanda och fullstack-funktionalitet.",
     role: "Full-stack development, UI and responsive layout, Authentication and admin panel, API and system architecture, Feature planning and customization.",
     features:
       "Product presentation website, User registration and login pages, Admin dashboard interface, Application download section, Responsive layout for desktop and mobile.",
-    techStack: "React, SCSS.",
+    techStack: "Next.js, MongoDB",
     challenges:
       "Challenge: Keep the UI scalable for future product features. Solution: Modular SCSS structure and reusable UI components. Challenge: Clear separation between public pages and admin area. Solution: Dedicated layouts and consistent navigation logic.",
   },
@@ -315,28 +315,8 @@ export default function Projects() {
                 <img src={selectedProject.image} alt={selectedProject.title} />
               </div>
 
-              {/* Двухколоночная сетка данных */}
+              {/* MAIN MODAL CONTENT */}
               <div className="projects-modal-layout">
-                <div className="projects-modal-sidebar">
-                  {selectedProject.type && (
-                    <div className="spec">
-                      <span>Type</span>
-                      <p>{selectedProject.type}</p>
-                    </div>
-                  )}
-                  {selectedProject.role && (
-                    <div className="spec">
-                      <span>Role</span>
-                      <p>{selectedProject.role}</p>
-                    </div>
-                  )}
-                  {selectedProject.year && (
-                    <div className="spec">
-                      <span>Year</span>
-                      <p>{selectedProject.year}</p>
-                    </div>
-                  )}
-                </div>
 
                 <div className="projects-modal-main-text">
                   <h2>{selectedProject.title}</h2>
