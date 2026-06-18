@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./Projects.scss";
-import caseAvatar from "../../assets/JagWiteCuted.png";
 import project1 from "../../assets/projects/project1.png";
 import project2 from "../../assets/projects/project2.png";
 import project3 from "../../assets/projects/project3.png";
@@ -16,7 +15,7 @@ interface Project {
   link: string | null;
   fullDescription?: string;
   role?: string;
-  features?: string;
+  keyFeatures?: string;
   techStack?: string;
   challenges?: string;
   type?: string;
@@ -32,7 +31,7 @@ const projectsData: Project[] = [
     description:
       "Presentation website for a time tracking and project management platform with bold type and smooth navigation.",
     image: project1,
-    link: "https://alexgeho.github.io/ByggExp.se/",
+    link: "https://byggexp.se/",
     type: "Product Website",
     year: "2025",
     testimonial:
@@ -41,8 +40,8 @@ const projectsData: Project[] = [
     fullDescription:
       "Utvecklade en landningssida som fungerar som ingång till en mobilapp och adminpanel för tidsrapportering och projektstyrning. Implementerade användarregistrering med autentisering och datalagring (MongoDB). Fokuserade på responsiv design, prestanda och fullstack-funktionalitet.",
     role: "Full-stack development, UI and responsive layout, Authentication and admin panel, API and system architecture, Feature planning and customization.",
-    features:
-      "Product presentation website, User registration and login pages, Admin dashboard interface, Application download section, Responsive layout for desktop and mobile.",
+    keyFeatures:
+      "Produktpresentation, användarregistrering och inloggning",
     techStack: "Next.js, MongoDB",
     challenges:
       "Challenge: Keep the UI scalable for future product features. Solution: Modular SCSS structure and reusable UI components. Challenge: Clear separation between public pages and admin area. Solution: Dedicated layouts and consistent navigation logic.",
@@ -92,7 +91,7 @@ const projectsData: Project[] = [
     fullDescription:
       "About the AGRYs - Webbshop. Agry Shop is a web-based platform for selling prefabricated reinforcement products for foundation construction in Sweden.",
     role: "Frontend development, UI layout and responsive design, Authentication flow (login / register UI), Admin panel structure, SCSS architecture.",
-    features:
+    keyFeatures:
       "Product presentation website, User registration and login pages, Admin dashboard interface, Application download section, Responsive layout for desktop and mobile.",
     techStack: "HTML5, SCSS, React.",
     challenges:
@@ -328,15 +327,15 @@ export default function Projects() {
                       <p>{selectedProject.techStack}</p>
                     </div>
                   )}
-                  {selectedProject.features && (
+                  {selectedProject.keyFeatures && (
                     <div className="detail-block">
-                      <h4>Key Features</h4>
-                      <p>{selectedProject.features}</p>
+                      <h4>Nyckelfunktioner</h4>
+                      <p>{selectedProject.keyFeatures}</p>
                     </div>
                   )}
                   {selectedProject.challenges && (
                     <div className="detail-block">
-                      <h4>Challenges & Solutions</h4>
+                      <h4>Utmaningar & Lösningar</h4>
                       <p>{selectedProject.challenges}</p>
                     </div>
                   )}
@@ -354,7 +353,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Блок с отзывом в самом низу */}
+              {/* testimonial */}
               <div className="projects-modal-testimonial-big">
                 <span className="feedback-label">Feedback</span>
                 <p>"{selectedProject.testimonial}"</p>
