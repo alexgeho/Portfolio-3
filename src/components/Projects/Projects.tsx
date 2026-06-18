@@ -304,13 +304,13 @@ export default function Projects() {
           <div
             className="projects-modal-container"
             onClick={(e) => e.stopPropagation()}
-          >
+            >
             <button className="projects-modal-close" onClick={closeModal}>
               ✕
             </button>
 
             <div className="projects-modal-content">
-              {/* Главное фото проекта */}
+              {/* Main project image */}
               <div className="projects-modal-hero">
                 <img src={selectedProject.image} alt={selectedProject.title} />
               </div>
