@@ -98,6 +98,7 @@
 
 /* --- inner card (Split Design) --- */
 .project-banner-card {
+  
   border-radius: 24px;
   background-color: $bg-card;
   display: flex;
@@ -119,12 +120,11 @@
   }
 
   
-  @media (min-width: $tablet) {
-    flex-direction: row;
-  }
+
 
   &__info {
     gap: 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
 
@@ -141,9 +141,7 @@
     color: $text-primary;
     letter-spacing: -0.5px;
 
-    @media (min-width: $tablet) {
-      margin-top: auto; /* На ПК выталкиваем заголовок вниз под отзыв */
-    }
+
   }
 
   &__desc {
@@ -169,9 +167,7 @@
     width: 100%; /* На телефоне кнопка на всю ширину */
     text-align: center;
 
-    @media (min-width: $tablet) {
-      width: auto; /* На ПК кнопка сжимается по тексту */
-    }
+  
 
     &:hover {
       transform: scale(1.05);
@@ -211,7 +207,7 @@
   }
 }
 
-/* --- Модальное окно (Открытый проект) --- */
+
 .projects-modal-overlay {
   position: fixed;
   top: 0;

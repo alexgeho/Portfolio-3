@@ -248,7 +248,6 @@ export default function Projects() {
 
             <div className="project-slide" key={`${project.id}-${index}`}>
               <div className="project-banner-card">
-                {/* Left col with img */}
                 <div className="project-banner-card__info">
                   {/* Project img */}
                   <div className="project-img">
