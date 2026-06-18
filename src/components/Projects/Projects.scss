@@ -98,14 +98,12 @@
 
 /* --- inner card (Split Design) --- */
 .project-banner-card {
-  
   border-radius: 24px;
   background-color: $bg-card;
   display: flex;
   flex-direction: column;
   pointer-events: auto;
   overflow: hidden;
-  
 
   .project-img {
     display: flex;
@@ -118,9 +116,6 @@
     display: block;
     border-radius: 24px;
   }
-
-  
-
 
   &__info {
     gap: 20px;
@@ -137,11 +132,9 @@
   &__title {
     font-size: 1.3rem;
     font-weight: 700;
-    margin: 0 0 6px 0; 
+    margin: 0 0 6px 0;
     color: $text-primary;
     letter-spacing: -0.5px;
-
-
   }
 
   &__desc {
@@ -166,8 +159,6 @@
       background-color 0.2s;
     width: 100%; /* На телефоне кнопка на всю ширину */
     text-align: center;
-
-  
 
     &:hover {
       transform: scale(1.05);
@@ -206,7 +197,6 @@
     }
   }
 }
-
 
 .projects-modal-overlay {
   position: fixed;
@@ -291,10 +281,7 @@
   display: flex;
   gap: 40px;
   margin-bottom: 40px;
-
 }
-
-
 
 .projects-modal-main-text {
   h2 {
@@ -307,10 +294,9 @@
   }
 
   .main-desc {
-    font-size: 1.15rem;
-    
-    color: $text-secondary;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     margin-bottom: 30px;
   }
 

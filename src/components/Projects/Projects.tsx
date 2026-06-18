@@ -68,9 +68,9 @@ const projectsData: Project[] = [
     type: "Desktop App",
     year: "2023",
     fullDescription: [
-    "Desktop application meant for time tracking, task execution, and complete project control system.", 
-    "Directly connected to the main ByggExp infrastructure.",
-    ]
+      "Desktop application meant for time tracking, task execution, and complete project control system.",
+      "Directly connected to the main ByggExp infrastructure.",
+    ],
   },
   {
     id: 4,
@@ -81,12 +81,13 @@ const projectsData: Project[] = [
     link: "https://alexgeho.github.io/js-intro-inl-1-webshop/",
     type: "E-Commerce",
     year: "2022",
-    fullDescription:
+    fullDescription: [
       "About the AGRYs - Webbshop. Agry Shop is a web-based platform for selling prefabricated reinforcement products for foundation construction in Sweden.",
+    ],
     role: "Frontend development, UI layout and responsive design, Authentication flow (login / register UI), Admin panel structure, SCSS architecture.",
     keyFeatures:
       "Product presentation website, User registration and login pages, Admin dashboard interface, Application download section, Responsive layout for desktop and mobile.",
-    techStack: "HTML5, SCSS, React.",
+    techStack: "HTML5, SCSS, JavaScript",
     challenges:
       "Challenge: Keep the UI scalable for future product features. Solution: Modular SCSS structure and reusable UI components. Challenge: Clear separation between public pages and admin area. Solution: Dedicated layouts and consistent navigation logic.",
   },
@@ -99,8 +100,9 @@ const projectsData: Project[] = [
     link: null,
     type: "REST API",
     year: "2024",
-    fullDescription:
+    fullDescription: [
       "Educational backend project focused on REST API development with NestJS.",
+    ],
     techStack: "NestJS, TypeScript, REST API",
   },
   {
@@ -111,9 +113,10 @@ const projectsData: Project[] = [
     image: project6,
     link: null,
     type: "Backend System",
-    year: "2024",
-    fullDescription:
+    year: "2025",
+    fullDescription: [
       "Educational backend project built with Express and TypeScript focusing on robust backend architecture and typing.",
+    ],
     techStack: "Express, TypeScript, Node.js",
   },
 ];
@@ -305,7 +308,13 @@ export default function Projects() {
               <div className="projects-modal-layout">
                 <div className="projects-modal-main-text">
                   <h2>{selectedProject.title}</h2>
-                  <p className="main-desc">{selectedProject.fullDescription}</p>
+                  <p className="main-desc">
+                    {selectedProject.fullDescription?.map(
+                      (paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                      ),
+                    )}
+                  </p>
 
                   {selectedProject.techStack && (
                     <div className="detail-block">
