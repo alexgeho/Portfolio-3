@@ -240,57 +240,42 @@ export default function Projects() {
             transition: isAnimating ? "transform 0.4s ease-out" : "none",
           }}
           onTransitionEnd={onTransitionEnd}
-          >
-
+        >
           {/* RENDER OF CARDS */}
 
           {extendedProjects.map((project, index) => (
-
             /* RENDER 1 */
 
             <div className="project-slide" key={`${project.id}-${index}`}>
-
               <div className="project-banner-card">
-
                 {/* Left col with img */}
                 <div className="project-banner-card__info">
-                  
-                  {/* Testimonial */}
-                  <div className="project-testimonial-mini">
-                    <p>"{project.testimonial}"</p>
-                    <div className="author">
-
-                      {/* AVATAR */}
-                      <img src={caseAvatar} alt="Author" />
-                      <span>{project.testimonialAuthor}</span>
-                    </div>
+                  {/* Project img */}
+                  <div className="project-img">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="project-img__img"
+                      draggable={false}
+                    />
                   </div>
-
-                  {/* Title, description and button below */}
-                  <h3 className="project-banner-card__title">
-                    {project.title}
-                  </h3>
-                  <p className="project-banner-card__desc">
-                    {project.description}
-                  </p>
-                  <button
-                    onClick={() => {
-                      if (!hasDragged) openModal(project);
-                    }}
-                    className="project-banner-card__btn-black"
-                  >
-                    Read More
-                  </button>
-                </div>
-
-                {/* Right col with img */}
-                <div className="project-banner-card__img-wrapper">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-banner-card__img"
-                    draggable={false}
-                  />
+                  <div className="project-banner-card__content">
+                    {/* Title, description and button below */}
+                    <h3 className="project-banner-card__title">
+                      {project.title}
+                    </h3>
+                    <p className="project-banner-card__desc">
+                      {project.description}
+                    </p>
+                    <button
+                      onClick={() => {
+                        if (!hasDragged) openModal(project);
+                      }}
+                      className="project-banner-card__btn-black"
+                    >
+                      Read More
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -299,7 +284,6 @@ export default function Projects() {
           {/* RENDER OF CARDS END*/}
         </div>
       </div>
-
 
       {/* DOTS */}
       <div className="container">
