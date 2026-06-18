@@ -20,8 +20,6 @@ interface Project {
   challenges?: string;
   type?: string;
   year?: string;
-  testimonial?: string;
-  testimonialAuthor?: string;
 }
 
 const projectsData: Project[] = [
@@ -34,9 +32,6 @@ const projectsData: Project[] = [
     link: "https://byggexp.se/",
     type: "Product Website",
     year: "2025",
-    testimonial:
-      "Smooth, stylish, and intuitive – exactly the kind of experience our users expect for project management.",
-    testimonialAuthor: "CEO, ByggExp",
     fullDescription:
       "Utvecklade en landningssida som fungerar som ingång till en mobilapp och adminpanel för tidsrapportering och projektstyrning. Implementerade användarregistrering med autentisering och datalagring (MongoDB). Fokuserade på responsiv design, prestanda och fullstack-funktionalitet.",
     role: "Full-stack development, UI and responsive layout, Authentication and admin panel, API and system architecture, Feature planning and customization.",
@@ -44,7 +39,7 @@ const projectsData: Project[] = [
       "Produktpresentation, användarregistrering och inloggning",
     techStack: "Next.js, MongoDB",
     challenges:
-      "Challenge: Keep the UI scalable for future product features. Solution: Modular SCSS structure and reusable UI components. Challenge: Clear separation between public pages and admin area. Solution: Dedicated layouts and consistent navigation logic.",
+      "Skalbar och modulär frontendarkitektur",
   },
   {
     id: 2,
@@ -55,9 +50,6 @@ const projectsData: Project[] = [
     link: null,
     type: "Admin Dashboard",
     year: "2023",
-    testimonial:
-      "The new admin panel transformed how we track metrics. Fast, clean, and incredibly powerful to use daily.",
-    testimonialAuthor: "Operations Manager",
     fullDescription:
       "Centralized admin panel for managing projects, tasks, teams, and tracking metrics. Built as an internal tool to oversee the entire ByggExp ecosystem.",
   },
@@ -70,9 +62,6 @@ const projectsData: Project[] = [
     link: null,
     type: "Desktop App",
     year: "2023",
-    testimonial:
-      "Time tracking has never been this seamless. The desktop app integrates flawlessly with our workflow.",
-    testimonialAuthor: "Project Lead",
     fullDescription:
       "Desktop application meant for time tracking, task execution, and complete project control system. Directly connected to the main ByggExp infrastructure.",
   },
@@ -85,9 +74,6 @@ const projectsData: Project[] = [
     link: "https://alexgeho.github.io/js-intro-inl-1-webshop/",
     type: "E-Commerce",
     year: "2022",
-    testimonial:
-      "A modern, robust webshop that handles complex reinforcement product configurations effortlessly.",
-    testimonialAuthor: "Sales Director, AGRY AB",
     fullDescription:
       "About the AGRYs - Webbshop. Agry Shop is a web-based platform for selling prefabricated reinforcement products for foundation construction in Sweden.",
     role: "Frontend development, UI layout and responsive design, Authentication flow (login / register UI), Admin panel structure, SCSS architecture.",
@@ -106,9 +92,6 @@ const projectsData: Project[] = [
     link: null,
     type: "REST API",
     year: "2024",
-    testimonial:
-      "Highly scalable backend architecture. Clean code principles made future feature additions a breeze.",
-    testimonialAuthor: "Tech Lead",
     fullDescription:
       "Educational backend project focused on REST API development with NestJS.",
     techStack: "NestJS, TypeScript, REST API",
@@ -122,9 +105,6 @@ const projectsData: Project[] = [
     link: null,
     type: "Backend System",
     year: "2024",
-    testimonial:
-      "Solid foundation for content management. Fast response times and excellently typed with TypeScript.",
-    testimonialAuthor: "Frontend Developer",
     fullDescription:
       "Educational backend project built with Express and TypeScript focusing on robust backend architecture and typing.",
     techStack: "Express, TypeScript, Node.js",
@@ -353,15 +333,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* testimonial */}
-              <div className="projects-modal-testimonial-big">
-                <span className="feedback-label">Feedback</span>
-                <p>"{selectedProject.testimonial}"</p>
-                <div className="author">
-                  <img src="/assets_old/hero/Jag%20Wite.png" alt="Author" />
-                  <span>{selectedProject.testimonialAuthor}</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
