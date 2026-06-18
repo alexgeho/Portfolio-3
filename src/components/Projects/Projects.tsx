@@ -13,7 +13,7 @@ interface Project {
   description: string;
   image: string;
   link: string | null;
-  fullDescription?: string;
+  fullDescription?: string[];
   role?: string;
   keyFeatures?: string;
   techStack?: string;
@@ -32,8 +32,11 @@ const projectsData: Project[] = [
     link: "https://byggexp.se/",
     type: "Product Website",
     year: "2025",
-    fullDescription:
-      "Utvecklade en landningssida som fungerar som ingång till en mobilapp och adminpanel för tidsrapportering och projektstyrning. Implementerade användarregistrering med autentisering och datalagring (MongoDB). Fokuserade på responsiv design, prestanda och fullstack-funktionalitet.",
+    fullDescription: [
+      "Utvecklade en landningssida som fungerar som ingång till en mobilapp och adminpanel för tidsrapportering och projektstyrning.",
+      "Implementerade användarregistrering med autentisering och datalagring (MongoDB).",
+      "Fokuserade på responsiv design, prestanda och fullstack-funktionalitet.",
+    ],
     role: "Full-stack development, UI and responsive layout, Authentication and admin panel, API and system architecture, Feature planning and customization.",
     keyFeatures: "Produktpresentation, användarregistrering och inloggning",
     techStack: "Next.js, MongoDB",
@@ -48,8 +51,10 @@ const projectsData: Project[] = [
     link: null,
     type: "Admin Dashboard",
     year: "2026",
-    fullDescription:
-      "Central kontrollpanel för byggföretag integrerad med mobilapp, backend, databas samt ekonomisystem som Visma och Fortnox. Samlar projekt, personal och verksamhetsdata i ett gemensamt system för effektiv administration och uppföljning.",
+    fullDescription: [
+      "Central kontrollpanel för byggföretag integrerad med mobilapp, backend, databas samt ekonomisystem som Visma och Fortnox.",
+      "Samlar projekt, personal och verksamhetsdata i ett gemensamt system för effektiv administration och uppföljning.",
+    ],
     keyFeatures:
       "Automatisk tidsrapportering, uppgifter med påminnelser, personalöversikt i realtid, fotodokumentation kopplad till projekt, projekt- och personalplanering, fakturor och offerter.",
   },
@@ -62,8 +67,10 @@ const projectsData: Project[] = [
     link: null,
     type: "Desktop App",
     year: "2023",
-    fullDescription:
-      "Desktop application meant for time tracking, task execution, and complete project control system. Directly connected to the main ByggExp infrastructure.",
+    fullDescription: [
+    "Desktop application meant for time tracking, task execution, and complete project control system.", 
+    "Directly connected to the main ByggExp infrastructure.",
+    ]
   },
   {
     id: 4,
