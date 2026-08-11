@@ -1,78 +1,59 @@
 import './Skills.scss'
-import react from '../../assets/skills/react.svg';
-import typeScript from '../../assets/skills/typescript.svg';
-import js from '../../assets/skills/js.svg';
-import html from '../../assets/skills/html.svg';
-import css from '../../assets/skills/css.svg';
-import nodeJs from '../../assets/skills/nodejs.svg';
-import nestJs from '../../assets/skills/nestjs.svg';
-import mongoDb from '../../assets/skills/mongodb.svg';
-import express from '../../assets/skills/expressjs.svg';
-import git from '../../assets/skills/git-hub.svg';
-import figma from '../../assets/skills/figma.svg';
-import docker from '../../assets/skills/docker.svg';
-import postman from '../../assets/skills/postman.svg';
-import notion from '../../assets/skills/notion.svg';
-
+import type { Dict } from '@/i18n/dictionaries'
 
 const skillsData = [
   {
-    category: 'Frontend',
     items: [
-      { name: 'React', desc: 'For building fast, interactive UIs', icon: react},
-      { name: 'TypeScript', desc: 'Typed JavaScript for safer code', icon: typeScript },
-      { name: 'JavaScript', desc: 'Core web logic & DOM manipulation', icon: js },
-      { name: 'HTML5', desc: 'Semantic markup & accessibility', icon: html },
-      { name: 'CSS3 / SCSS', desc: 'Responsive styling & layouts', icon: css }
-    ]
+      { name: 'React', icon: '/assets/skills/react.svg' },
+      { name: 'TypeScript', icon: '/assets/skills/typescript.svg' },
+      { name: 'JavaScript', icon: '/assets/skills/js.svg' },
+      { name: 'HTML5', icon: '/assets/skills/html.svg' },
+      { name: 'CSS3 / SCSS', icon: '/assets/skills/css.svg' },
+    ],
   },
   {
-    category: 'Backend',
     items: [
-      { name: 'Node.js', desc: 'JavaScript runtime for servers', icon: nodeJs },
-      { name: 'NestJS', desc: 'Scalable server-side applications', icon: nestJs },
-      { name: 'Express', desc: 'Minimal framework for APIs', icon: express },
-      { name: 'MongoDB', desc: 'Flexible NoSQL database system', icon: mongoDb }
-    ]
+      { name: 'Node.js', icon: '/assets/skills/nodejs.svg' },
+      { name: 'NestJS', icon: '/assets/skills/nestjs.svg' },
+      { name: 'Express', icon: '/assets/skills/expressjs.svg' },
+      { name: 'MongoDB', icon: '/assets/skills/mongodb.svg' },
+    ],
   },
   {
-    category: 'Tools & DevOps',
     items: [
-      /* Вот здесь мы заменили иконку GitHub на темную версию из CDN */
-      { name: 'Git & GitHub', desc: 'Version control and collaboration', icon: git },
-      { name: 'Docker', desc: 'Containers for isolated environments', icon: docker },
-      { name: 'Postman', desc: 'API testing and documentation', icon: postman }
-    ]
+      { name: 'Git & GitHub', icon: '/assets/skills/git-hub.svg' },
+      { name: 'Docker', icon: '/assets/skills/docker.svg' },
+      { name: 'Postman', icon: '/assets/skills/postman.svg' },
+    ],
   },
   {
-    category: 'Design & Workflow',
     items: [
-      { name: 'Figma', desc: 'Vector graphics and prototyping', icon: figma },
-      { name: 'Notion', desc: 'Planning and docs in one place', icon: notion }
-    ]
-  }
+      { name: 'Figma', icon: '/assets/skills/figma.svg' },
+      { name: 'Notion', icon: '/assets/skills/notion.svg' },
+    ],
+  },
 ]
 
-export default function Skills() {
+export default function Skills({ dict }: { dict: Dict['skills'] }) {
   return (
     <section className="skills" id="skills">
       <div className="container">
         <div className="skills__header">
-          <span className="section-label">TECH STACK</span>
-          <h2 className="section-title">What I Use</h2>
+          <span className="section-label">{dict.label}</span>
+          <h2 className="section-title">{dict.title}</h2>
         </div>
 
         <div className="skills__grid">
           {skillsData.map((block, index) => (
             <div className="skill-block" key={index}>
-              <h3 className="skill-block__title">{block.category}</h3>
+              <h3 className="skill-block__title">{dict.categories[index]}</h3>
               <div className="skill-block__list">
                 {block.items.map((item, i) => (
                   <div className="skill-item" key={i}>
                     <img src={item.icon} alt={item.name} className="skill-item__icon" />
                     <div className="skill-item__info">
                       <h4 className="skill-item__name">{item.name}</h4>
-                      <p className="skill-item__desc">{item.desc}</p>
+                      <p className="skill-item__desc">{dict.descriptions[item.name]}</p>
                     </div>
                   </div>
                 ))}

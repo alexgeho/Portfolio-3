@@ -1,17 +1,23 @@
-import { useState } from 'react'
-import './FloatingNav.scss'
+'use client'
 
-export default function FloatingNav() {
+import { useState } from 'react'
+import Link from 'next/link'
+import './FloatingNav.scss'
+import type { Dict, Lang } from '@/i18n/dictionaries'
+
+export default function FloatingNav({ dict, lang }: { dict: Dict['nav']; lang: Lang }) {
   const [activeNav, setActiveNav] = useState('#home')
+  const otherLang: Lang = lang === 'sv' ? 'en' : 'sv'
 
   return (
     <div className="framer-nav-container">
       <div className="framer-nav-box">
-        
+
         <div className="framer-menu-items">
-          <a 
-            href="#home" 
+          <a
+            href="#home"
             onClick={() => setActiveNav('#home')}
+            aria-label={dict.home}
             className={`framer-nav-link ${activeNav === '#home' ? 'active' : ''}`}
           >
             <div className="framer-icon-wrapper">
@@ -23,9 +29,10 @@ export default function FloatingNav() {
             {activeNav === '#home' && <div className="framer-active-dot"></div>}
           </a>
 
-          <a 
-            href="#projects" 
+          <a
+            href="#projects"
             onClick={() => setActiveNav('#projects')}
+            aria-label={dict.projects}
             className={`framer-nav-link ${activeNav === '#projects' ? 'active' : ''}`}
           >
             <div className="framer-icon-wrapper">
@@ -37,9 +44,10 @@ export default function FloatingNav() {
             {activeNav === '#projects' && <div className="framer-active-dot"></div>}
           </a>
 
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             onClick={() => setActiveNav('#about')}
+            aria-label={dict.about}
             className={`framer-nav-link ${activeNav === '#about' ? 'active' : ''}`}
           >
             <div className="framer-icon-wrapper">
@@ -54,7 +62,19 @@ export default function FloatingNav() {
 
         <div className="framer-divider"></div>
 
-        {/* Изменили иконку на классический конвертик (Mail) */}
+        {/* Language switcher */}
+        <Link
+          href={`/${otherLang}`}
+          className="framer-nav-link framer-lang-switch"
+          aria-label={dict.switchTo}
+          title={dict.switchTo}
+        >
+          <span className="framer-lang-code">{otherLang.toUpperCase()}</span>
+        </Link>
+
+        <div className="framer-divider"></div>
+
+        {/* Contact (mail) */}
         <a href="mailto:alexander.gerhard@outlook.com?subject=New%20Project%20Inquiry" className="framer-nav-primary">
           <div className="framer-icon-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

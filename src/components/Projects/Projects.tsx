@@ -1,136 +1,40 @@
+'use client'
+
 import { useState, useEffect } from "react";
 import "./Projects.scss";
-import project1 from "../../assets/projects/project1.png";
-import project2 from "../../assets/projects/project2.png";
-import project3 from "../../assets/projects/project3.png";
-import project4 from "../../assets/projects/project4.png";
-import project5 from "../../assets/projects/project5.png";
-import project6 from "../../assets/projects/project6.png";
+import type { Dict } from "@/i18n/dictionaries";
 
-interface Project {
+interface StaticProject {
   id: number;
   title: string;
-  description: string;
   image: string;
   link: string | null;
-  fullDescription?: string[];
-  role?: string;
-  keyFeatures?: string;
   techStack?: string;
-  challenges?: string;
-  type?: string;
-  year?: string;
 }
 
-const projectsData: Project[] = [
-  {
-    id: 1,
-    title: "ByggExp",
-    description:
-      "Presentationswebbplats för ByggExp – en plattform för tidsrapportering, projektstyrning och fakturering. Integrerad med mobilapp och adminpanel.",
-    image: project1,
-    link: "https://byggexp.se/",
-    type: "Product Website",
-    year: "2025",
-    fullDescription: [
-      "Utvecklade en landningssida som fungerar som ingång till en mobilapp och adminpanel för tidsrapportering och projektstyrning.",
-      "Implementerade användarregistrering med autentisering och datalagring (MongoDB).",
-      "Fokuserade på responsiv design, prestanda och fullstack-funktionalitet.",
-    ],
-    role: "Full-stack development, UI and responsive layout, Authentication and admin panel, API and system architecture, Feature planning and customization.",
-    keyFeatures: "Produktpresentation, användarregistrering och inloggning",
-    techStack: "Next.js, MongoDB",
-    challenges: "Skalbar och modulär frontendarkitektur",
-  },
-  {
-    id: 2,
-    title: "ByggExp Admin",
-    description:
-      "Adminpanel för ByggExp – hantering av projekt, uppgifter, dokumentation och personal i realtid. Integrerad med mobilapp och backend.",
-    image: project2,
-    link: null,
-    type: "Admin Dashboard",
-    year: "2026",
-    fullDescription: [
-      "Central kontrollpanel för byggföretag integrerad med mobilapp, backend, databas samt ekonomisystem som Visma och Fortnox.",
-      "Samlar projekt, personal och verksamhetsdata i ett gemensamt system för effektiv administration och uppföljning.",
-    ],
-    keyFeatures:
-      "Automatisk tidsrapportering, uppgifter med påminnelser, personalöversikt i realtid, fotodokumentation kopplad till projekt, projekt- och personalplanering, fakturor och offerter.",
-  },
-  {
-    id: 3,
-    title: "ByggExp App",
-    description:
-      "Mobilapp för tidsrapportering, uppgiftshantering och projektstyrning. Integrerad med ByggExps adminpanel och backend.",
-    image: project3,
-    link: null,
-    year: "2023",
-    fullDescription: [
-      "Mobilapplikation utvecklad för byggföretag med fokus på enkel rapportering och uppföljning direkt från arbetsplatsen.",
-      "Integrerad med ByggExps adminpanel, backend och databas för synkronisering av projekt-, personal- och verksamhetsdata i realtid.",
-    ],
-    techStack: "React Native, MongoDB",
-  },
-  {
-    id: 4,
-    title: "AGRY AB",
-    description:
-      "Webbshop för prefabricerade armeringsprodukter med användarautentisering och responsiv design.",
-    image: project4,
-    link: "https://alexgeho.github.io/js-intro-inl-1-webshop/",
-    type: "E-Commerce",
-    year: "2022",
-    fullDescription: [
-      "Webbshop utvecklad för försäljning av prefabricerade armeringsprodukter för grundläggningsprojekt i Sverige.",
-      "Implementerade produktkatalog, användarautentisering och administrationsfunktioner.",
-    ],
-    role: "Frontend development, UI layout and responsive design, Authentication flow (login / register UI), Admin panel structure, SCSS architecture.",
-    keyFeatures:
-      "Produktkatalog, användarregistrering, inloggning, adminfunktioner och responsiv design.",
-    techStack: "HTML5, SCSS, JavaScript",
-    challenges:
-      "Skalbar frontendarkitektur med återanvändbara komponenter och tydlig struktur.",
-  },
-  {
-    id: 5,
-    title: "Blogger Backend",
-    description: "REST API för hantering av användare, inlägg och kommentarer.",
-    image: project5,
-    link: null,
-    type: "REST API",
-    year: "2024",
-    fullDescription: [
-      "Utvecklade ett REST API med autentisering, användare, inlägg och kommentarer.",
-      "Implementerade JWT-autentisering, CRUD-operationer, validering och API-dokumentation.",
-    ],
-    keyFeatures:
-      "JWT-autentisering, CRUD-operationer, användare, inlägg, kommentarer och Swagger-dokumentation.",
-    techStack: "NestJS, TypeScript, MongoDB, REST API",
-    challenges:
-      "Modulär arkitektur och tydlig separation av ansvar mellan API-komponenter.",
-  },
-  {
-    id: 6,
-    title: "Express Platform",
-    description: "REST API byggt med Express och TypeScript.",
-    image: project6,
-    link: null,
-    type: "Backend System",
-    year: "2025",
-    fullDescription: [
-      "Utvecklade ett REST API med fokus på routing, middleware och datavalidering.",
-      "Arbetade med typning, CRUD-operationer och strukturering av backendlogik.",
-    ],
-    keyFeatures:
-      "Arbetade med CRUD-operationer, datavalidering och typsäker backendutveckling.",
-    techStack: "Express, TypeScript, Node.js",
-  },
+interface Project extends StaticProject {
+  description: string;
+  fullDescription: string[];
+  keyFeatures?: string;
+  challenges?: string;
+}
+
+const staticProjects: StaticProject[] = [
+  { id: 1, title: "ByggExp", image: "/assets/projects/project1.png", link: "https://byggexp.se/", techStack: "Next.js, MongoDB" },
+  { id: 2, title: "ByggExp Admin", image: "/assets/projects/project2.png", link: null },
+  { id: 3, title: "ByggExp App", image: "/assets/projects/project3.png", link: null, techStack: "React Native, MongoDB" },
+  { id: 4, title: "AGRY AB", image: "/assets/projects/project4.png", link: "https://alexgeho.github.io/js-intro-inl-1-webshop/", techStack: "HTML5, SCSS, JavaScript" },
+  { id: 5, title: "Blogger Backend", image: "/assets/projects/project5.png", link: null, techStack: "NestJS, TypeScript, MongoDB, REST API" },
+  { id: 6, title: "Express Platform", image: "/assets/projects/project6.png", link: null, techStack: "Express, TypeScript, Node.js" },
 ];
 
-const extendedProjects = [...projectsData, ...projectsData, ...projectsData];
+export default function Projects({ dict }: { dict: Dict["projects"] }) {
+  const projectsData: Project[] = staticProjects.map((p, i) => ({
+    ...p,
+    ...dict.items[i],
+  }));
+  const extendedProjects = [...projectsData, ...projectsData, ...projectsData];
 
-export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentIndex, setCurrentIndex] = useState(projectsData.length);
   const [isAnimating, setIsAnimating] = useState(true);
@@ -204,24 +108,22 @@ export default function Projects() {
       {/* HEADER */}
       <div className="container">
         <div className="projects__header">
-          <span className="section-label">PROJECTS</span>
+          <span className="section-label">{dict.label}</span>
           <div className="projects__header-top">
-            <h2 className="section-title">Latest Works</h2>
+            <h2 className="section-title">{dict.title}</h2>
             <a
               href="https://github.com/alexgeho"
               target="_blank"
               rel="noreferrer"
               className="projects__btn-view"
             >
-              View GitHub
+              {dict.viewGithub}
             </a>
           </div>
         </div>
       </div>
-      {/*  HEADER END*/}
 
-      {/* CAROUSEL container */}
-      {/* Carousel Movement Logic */}
+      {/* CAROUSEL */}
       <div
         className="projects__carousel-container"
         onPointerDown={onPointerDown}
@@ -237,15 +139,10 @@ export default function Projects() {
           }}
           onTransitionEnd={onTransitionEnd}
         >
-          {/* RENDER OF CARDS */}
-
           {extendedProjects.map((project, index) => (
-            /* RENDER 1 */
-
             <div className="project-slide" key={`${project.id}-${index}`}>
               <div className="project-banner-card">
                 <div className="project-banner-card__info">
-                  {/* Project img */}
                   <div className="project-img">
                     <img
                       src={project.image}
@@ -255,7 +152,6 @@ export default function Projects() {
                     />
                   </div>
                   <div className="project-banner-card__content">
-                    {/* Title, description and button below */}
                     <h3 className="project-banner-card__title">
                       {project.title}
                     </h3>
@@ -268,15 +164,13 @@ export default function Projects() {
                       }}
                       className="project-banner-card__btn-black"
                     >
-                      Läs mer
+                      {dict.readMore}
                     </button>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-
-          {/* RENDER OF CARDS END*/}
         </div>
       </div>
 
@@ -294,7 +188,7 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Opened Project / Modal window / popup  */}
+      {/* MODAL */}
       {selectedProject && (
         <div className="projects-modal-overlay" onClick={closeModal}>
           <div
@@ -306,38 +200,34 @@ export default function Projects() {
             </button>
 
             <div className="projects-modal-content">
-              {/* Main project image */}
               <div className="projects-modal-hero">
                 <img src={selectedProject.image} alt={selectedProject.title} />
               </div>
 
-              {/* MAIN MODAL CONTENT */}
               <div className="projects-modal-layout">
                 <div className="projects-modal-main-text">
                   <h2>{selectedProject.title}</h2>
-                  <p className="main-desc">
-                    {selectedProject.fullDescription?.map(
-                      (paragraph, index) => (
-                        <p key={index}>{paragraph}</p>
-                      ),
-                    )}
-                  </p>
+                  <div className="main-desc">
+                    {selectedProject.fullDescription?.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </div>
 
                   {selectedProject.techStack && (
                     <div className="detail-block">
-                      <h4>Tech Stack</h4>
+                      <h4>{dict.techStack}</h4>
                       <p>{selectedProject.techStack}</p>
                     </div>
                   )}
                   {selectedProject.keyFeatures && (
                     <div className="detail-block">
-                      <h4>Nyckelfunktioner</h4>
+                      <h4>{dict.keyFeatures}</h4>
                       <p>{selectedProject.keyFeatures}</p>
                     </div>
                   )}
                   {selectedProject.challenges && (
                     <div className="detail-block">
-                      <h4>Utmaningar & Lösningar</h4>
+                      <h4>{dict.challenges}</h4>
                       <p>{selectedProject.challenges}</p>
                     </div>
                   )}
@@ -349,7 +239,7 @@ export default function Projects() {
                       rel="noreferrer"
                       className="projects-modal-link"
                     >
-                      Visit Live Website →
+                      {dict.visitLive}
                     </a>
                   )}
                 </div>

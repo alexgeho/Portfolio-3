@@ -65,6 +65,22 @@
   margin: 0 4px;
 }
 
+.framer-lang-switch {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: rgba(0, 0, 0, 0.55);
+
+  &:hover {
+    color: rgb(30, 110, 244);
+  }
+
+  .framer-lang-code {
+    line-height: 1;
+  }
+}
+
 .framer-nav-primary {
   width: 50px;
   height: 50px;

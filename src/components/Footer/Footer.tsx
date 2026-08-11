@@ -1,65 +1,74 @@
-import './Footer.scss'
-import avatar from '../../assets/JagWite.png';
+'use client'
 
-export default function Footer() {
+import './Footer.scss'
+import type { Dict } from '@/i18n/dictionaries'
+
+export default function Footer({ dict }: { dict: Dict['footer'] }) {
   const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const aboutLine2 = dict.aboutLine2.split('\n')
+
   return (
     <footer className="footer" id="contact">
       <div className="container footer__container">
-        
+
         <div className="footer__cta">
-          <span className="footer__label">Get in Touch</span>
-          <h2 className="footer__title">Let’s Connect</h2>
+          <span className="footer__label">{dict.label}</span>
+          <h2 className="footer__title">{dict.title}</h2>
           <div className="footer__btn-wrapper">
             <a href="mailto:alexander.gerhard@outlook.com?subject=New%20Project%20Inquiry" className="footer__btn">
-              Start Project
+              {dict.startProject}
             </a>
           </div>
         </div>
 
-        {/* Теперь карточки контактов идут отдельным блоком */}
         <div className="footer__contacts">
           <a href="mailto:alexander.gerhard@outlook.com" className="footer__contact-card">
-            <span className="footer__contact-label">Email Me</span>
+            <span className="footer__contact-label">{dict.emailMe}</span>
             <span className="footer__contact-value">alexander.gerhard@outlook.com</span>
           </a>
           <a href="https://wa.me/46707577575" target="_blank" rel="noreferrer" className="footer__contact-card">
-            <span className="footer__contact-label">WhatsApp</span>
+            <span className="footer__contact-label">{dict.whatsapp}</span>
             <span className="footer__contact-value">+46 70 757 75 75</span>
           </a>
         </div>
 
-        {/* Двухколоночная сетка: About слева, Меню справа */}
         <div className="footer__info-grid">
           <div className="footer__about">
             <p className="footer__about-text">
-              Hi, I'm Alexander.<br/>
-              <span>I press buttons and<br/>interfaces happen.</span>
+              {dict.aboutLine1}<br/>
+              <span>
+                {aboutLine2.map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    {i < aboutLine2.length - 1 && <br />}
+                  </span>
+                ))}
+              </span>
             </p>
-            <img 
-              src={avatar}
-              alt="Alexander" 
-              className="footer__about-img" 
+            <img
+              src="/assets/JagWite.png"
+              alt="Alexander Gerhard"
+              className="footer__about-img"
             />
           </div>
 
           <div className="footer__bottom">
             <div className="footer__menus">
               <div className="footer__menu-row">
-                <span className="footer__menu-title">Menu</span>
+                <span className="footer__menu-title">{dict.menuTitle}</span>
                 <div className="footer__menu-list">
-                  <a href="#home">Home</a>
-                  <a href="#projects">Works</a>
-                  <a href="#about">About</a>
+                  <a href="#home">{dict.linkHome}</a>
+                  <a href="#projects">{dict.linkWorks}</a>
+                  <a href="#about">{dict.linkAbout}</a>
                 </div>
               </div>
-              
+
               <div className="footer__menu-row">
-                <span className="footer__menu-title">Follow</span>
+                <span className="footer__menu-title">{dict.followTitle}</span>
                 <div className="footer__menu-list">
                   <a href="https://www.linkedin.com/in/alexandergerhard/" target="_blank" rel="noreferrer">LinkedIn</a>
                   <a href="https://github.com/alexgeho" target="_blank" rel="noreferrer">GitHub</a>
@@ -67,10 +76,10 @@ export default function Footer() {
               </div>
 
               <div className="footer__menu-row">
-                <span className="footer__menu-title">Explore</span>
+                <span className="footer__menu-title">{dict.exploreTitle}</span>
                 <div className="footer__menu-list">
-                  <a href="#skills">Skills</a>
-                  <a href="#experience">Focus</a>
+                  <a href="#skills">{dict.linkSkills}</a>
+                  <a href="#experience">{dict.linkFocus}</a>
                 </div>
               </div>
             </div>
@@ -78,7 +87,7 @@ export default function Footer() {
             <div className="footer__copyright">
               <p>© {new Date().getFullYear()}, Alexander Gerhard</p>
               <a href="#home" onClick={scrollToTop} className="footer__back-to-top">
-                Back to Top
+                {dict.backToTop}
               </a>
             </div>
           </div>
