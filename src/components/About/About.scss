@@ -49,6 +49,13 @@
     transform: translateY(-4px);
   }
 
+  &__heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: -8px;
+  }
+
   &__text {
     font-size: 1.15rem;
     line-height: 1.6;

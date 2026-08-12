@@ -14,7 +14,7 @@
   }
 }
 
-.bento-card {
+.bento-about .bento-card {
   background-color: $bg-card;
   border-radius: 32px;
   padding: 32px;
@@ -99,6 +99,11 @@
   &--location {
     justify-content: space-between;
     min-height: 240px;
+
+    .bento-card__header {
+      align-items: center;
+      text-align: center;
+    }
   }
 
   &__map {
@@ -154,6 +159,11 @@
   /* --- Code Card --- */
   &--code {
     gap: 24px;
+
+    .bento-card__header {
+      align-items: center;
+      text-align: center;
+    }
   }
 
   /* --- What I Do Card --- */
@@ -207,7 +217,7 @@
 }
 
 /* --- Плашки (Pills) с мигающими точками --- */
-.pill {
+.bento-about .pill {
   background-color: #ffffff;
   padding: 8px 16px;
   border-radius: 100px;
@@ -230,7 +240,7 @@
   }
 }
 
-.code-window {
+.bento-about .code-window {
   background-color: #ffffff;
   border-radius: 16px;
   padding: 16px;

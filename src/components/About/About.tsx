@@ -18,11 +18,12 @@ export default function About({ dict }: { dict: Dict['about'] }) {
         <div className="about__grid">
           {dict.cards.map((info, index) => (
             <div className="about-card" key={index}>
+              <h3 className="about-card__heading">{info.title}</h3>
               <p className="about-card__text" style={{ whiteSpace: 'pre-line' }}>{info.text}</p>
               <div className="about-card__author">
-                <img src={cardImages[index]} alt={info.title} className="about-card__avatar" />
+                <img src={cardImages[index]} alt="Alexander Gerhard" className="about-card__avatar" />
                 <div className="about-card__info">
-                  <h4 className="about-card__name">{info.title}</h4>
+                  <h4 className="about-card__name">Alexander Gerhard</h4>
                   <span className="about-card__role">{info.role}</span>
                 </div>
               </div>

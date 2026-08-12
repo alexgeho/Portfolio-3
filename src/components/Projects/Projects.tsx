@@ -46,10 +46,12 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
   const openModal = (project: Project) => {
     setSelectedProject(project);
     document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
   };
   const closeModal = () => {
     setSelectedProject(null);
     document.body.style.overflow = "auto";
+    document.body.classList.remove("modal-open");
   };
 
   const onPointerDown = (e: React.PointerEvent) => {
@@ -158,6 +160,15 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
                     <p className="project-banner-card__desc">
                       {project.description}
                     </p>
+                    {project.techStack && (
+                      <div className="project-banner-card__tags">
+                        {project.techStack.split(",").map((t, i) => (
+                          <span className="proj-tag" key={i}>
+                            {t.trim()}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <button
                       onClick={() => {
                         if (!hasDragged) openModal(project);

@@ -7,6 +7,14 @@
   justify-content: center;
   z-index: 9999;
   pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Прячем плавающую навигацию, когда открыт кейс (модалка) */
+body.modal-open .framer-nav-container {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
 .framer-nav-box {

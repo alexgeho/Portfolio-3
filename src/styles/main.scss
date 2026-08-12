@@ -90,14 +90,10 @@ html {
   animation-delay: 0.55s;
 }
 
-/* --- СПЕЦИАЛЬНАЯ МЕДЛЕННАЯ АНИМАЦИЯ ДЛЯ КАРТИНОК (PNG) --- */
+/* --- КАРТИНКИ ПОЯВЛЯЮТСЯ ТАК ЖЕ, КАК ТЕКСТ (сдвиг снизу) --- */
 .is-revealed.card-cascade img {
-  /* Анимация в 5 раз медленнее текста (4 секунды) */
-  animation: revealImage 4s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
-  animation-delay: 0.6s !important; /* Появляется самой последней */
-  
-  /* Указываем, что точка, из которой "вырастает" картинка, находится ВНИЗУ ПО ЦЕНТРУ */
-  transform-origin: bottom center; 
+  animation: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+  animation-delay: 0.5s !important; /* Появляется последней в каскаде */
 }
 
 
@@ -117,17 +113,3 @@ html {
   }
 }
 
-/* ИСПРАВЛЕННАЯ АНИМАЦИЯ ДЛЯ КАРТИНОК: ПЛАВНЫЙ РОСТ ИЗ ТОЧКИ ВНИЗУ */
-@keyframes revealImage {
-  0% {
-    opacity: 0;
-    /* Убрали translateY(60px), добавили scale(0). */
-    /* Теперь картинка стартует в своей финальной точке по Y, но сжатой в ноль. */
-    transform: scale(0); 
-  }
-  100% {
-    opacity: 1;
-    /* Пропорционально вырастает до 100% своего размера. */
-    transform: scale(1);
-  }
-}
