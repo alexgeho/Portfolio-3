@@ -10,9 +10,12 @@ interface StaticProject {
   image: string;
   link: string | null;
   techStack?: string;
+  mainTech: string;
+  projType: string;
 }
 
 interface Project extends StaticProject {
+  subtitle: string;
   description: string;
   fullDescription: string[];
   keyFeatures?: string;
@@ -20,17 +23,18 @@ interface Project extends StaticProject {
 }
 
 const staticProjects: StaticProject[] = [
-  { id: 1, title: "ByggExp", image: "/assets/projects/project1.png", link: "https://byggexp.se/", techStack: "Next.js, MongoDB" },
-  { id: 2, title: "ByggExp Admin", image: "/assets/projects/project2.png", link: null },
-  { id: 3, title: "ByggExp App", image: "/assets/projects/project3.png", link: null, techStack: "React Native, MongoDB" },
-  { id: 4, title: "AGRY AB", image: "/assets/projects/project4.png", link: "https://alexgeho.github.io/js-intro-inl-1-webshop/", techStack: "HTML5, SCSS, JavaScript" },
-  { id: 5, title: "Blogger Backend", image: "/assets/projects/project5.png", link: null, techStack: "NestJS, TypeScript, MongoDB, REST API" },
-  { id: 6, title: "Express Platform", image: "/assets/projects/project6.png", link: null, techStack: "Express, TypeScript, Node.js" },
+  { id: 1, title: "ByggExp", image: "/assets/projects/project1.png", link: "https://byggexp.se/", techStack: "Next.js, MongoDB", mainTech: "Next.js", projType: "Fullstack" },
+  { id: 2, title: "ByggExp Admin", image: "/assets/projects/project2.png", link: null, mainTech: "React", projType: "Dashboard" },
+  { id: 3, title: "ByggExp App", image: "/assets/projects/project3.png", link: null, techStack: "React Native, MongoDB", mainTech: "React Native", projType: "Mobile" },
+  { id: 4, title: "AGRY AB", image: "/assets/projects/project4.png", link: "https://alexgeho.github.io/js-intro-inl-1-webshop/", techStack: "HTML5, SCSS, JavaScript", mainTech: "JavaScript", projType: "Webshop" },
+  { id: 5, title: "Blogger Backend", image: "/assets/projects/project5.png", link: null, techStack: "NestJS, TypeScript, MongoDB, REST API", mainTech: "NestJS", projType: "REST API" },
+  { id: 6, title: "Express Platform", image: "/assets/projects/project6.png", link: null, techStack: "Express, TypeScript, Node.js", mainTech: "Express", projType: "REST API" },
 ];
 
 export default function Projects({ dict }: { dict: Dict["projects"] }) {
   const projectsData: Project[] = staticProjects.map((p, i) => ({
     ...p,
+    subtitle: dict.subtitles[i],
     ...dict.items[i],
   }));
   const extendedProjects = [...projectsData, ...projectsData, ...projectsData];
@@ -157,18 +161,22 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
                     <h3 className="project-banner-card__title">
                       {project.title}
                     </h3>
+                    <p className="project-banner-card__subtitle">
+                      {project.subtitle}
+                    </p>
                     <p className="project-banner-card__desc">
                       {project.description}
                     </p>
-                    {project.techStack && (
-                      <div className="project-banner-card__tags">
-                        {project.techStack.split(",").map((t, i) => (
-                          <span className="proj-tag" key={i}>
-                            {t.trim()}
-                          </span>
-                        ))}
+                    <div className="project-banner-card__stats">
+                      <div className="proj-stat">
+                        <span className="proj-stat__label">{dict.stackLabel}</span>
+                        <span className="proj-stat__value">{project.mainTech}</span>
                       </div>
-                    )}
+                      <div className="proj-stat">
+                        <span className="proj-stat__label">{dict.typeLabel}</span>
+                        <span className="proj-stat__value">{project.projType}</span>
+                      </div>
+                    </div>
                     <button
                       onClick={() => {
                         if (!hasDragged) openModal(project);

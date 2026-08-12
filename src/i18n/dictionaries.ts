@@ -46,6 +46,9 @@ export interface Dict {
     keyFeatures: string
     challenges: string
     visitLive: string
+    typeLabel: string
+    stackLabel: string
+    subtitles: string[]
     items: ProjectText[]
   }
   skills: {
@@ -132,6 +135,16 @@ const sv: Dict = {
     keyFeatures: 'Nyckelfunktioner',
     challenges: 'Utmaningar & Lösningar',
     visitLive: 'Besök webbplatsen →',
+    typeLabel: 'Typ',
+    stackLabel: 'Stack',
+    subtitles: [
+      'Live SaaS-plattform',
+      'Adminpanel i realtid',
+      'Plattformsoberoende app',
+      'E-handelsbutik',
+      'Backend-tjänst',
+      'Backend-tjänst',
+    ],
     items: [
       {
         description:
@@ -335,6 +348,16 @@ const en: Dict = {
     keyFeatures: 'Key Features',
     challenges: 'Challenges & Solutions',
     visitLive: 'Visit Live Website →',
+    typeLabel: 'Type',
+    stackLabel: 'Stack',
+    subtitles: [
+      'Live SaaS platform',
+      'Real-time admin panel',
+      'Cross-platform app',
+      'E-commerce shop',
+      'Backend service',
+      'Backend service',
+    ],
     items: [
       {
         description:

@@ -124,7 +124,7 @@
   }
 
   &__info {
-    gap: 12px;
+    gap: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -138,14 +138,21 @@
   &__title {
     font-size: 1.2rem;
     font-weight: 700;
-    margin: 0 0 12px 0; /* Больше воздуха между заголовком и описанием */
+    margin: 0 0 2px 0;
     color: $text-primary;
     letter-spacing: -0.5px;
   }
 
+  &__subtitle {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0 0 14px 0; /* Воздух между шапкой и описанием */
+    color: $text-secondary;
+  }
+
   &__desc {
     font-size: 0.95rem; /* На уровне "Coding Since" */
-    margin: 0;
+    margin: 0 0 18px 0;
     color: $text-secondary;
     line-height: 1.5;
 
@@ -157,22 +164,36 @@
     overflow: hidden;
   }
 
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
+  /* Квадратики с данными (как в референсе) */
+  &__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
   }
 
-  .proj-tag {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: $text-secondary;
+  .proj-stat {
     background: #ffffff;
     border: 1px solid $border-color;
-    padding: 5px 12px;
-    border-radius: 100px;
-    white-space: nowrap;
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: $text-secondary;
+      text-transform: none;
+    }
+
+    &__value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $text-primary;
+      letter-spacing: -0.3px;
+    }
   }
 
   &__btn-black {
