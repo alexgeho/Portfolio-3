@@ -230,7 +230,8 @@
     color: $text-secondary;
     line-height: 1.5;
 
-    /* Обрезаем описание до 2 строк с многоточием */
+    /* Ровно 2 строки у всех карточек: min — резерв, clamp — обрезка */
+    min-height: 3em; /* 2 строки * line-height 1.5 */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
