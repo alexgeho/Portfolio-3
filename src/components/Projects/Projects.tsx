@@ -8,6 +8,8 @@ interface StaticProject {
   id: number;
   title: string;
   image: string;
+  images?: string[];
+  imageFit?: "cover" | "contain";
   link: string | null;
   techStack?: string;
   mainTech: string;
@@ -23,7 +25,7 @@ interface Project extends StaticProject {
 }
 
 const staticProjects: StaticProject[] = [
-  { id: 1, title: "ByggExp", image: "/assets/projects/project1.png", link: "https://byggexp.se/", techStack: "Next.js, MongoDB", mainTech: "Next.js", projType: "Fullstack" },
+  { id: 1, title: "ByggExp", image: "/assets/portfolio/byggexp-web1.png", images: ["/assets/portfolio/byggexp-web1.png", "/assets/portfolio/byggexp-web2.png"], imageFit: "contain", link: "https://byggexp.se/", techStack: "Next.js, MongoDB", mainTech: "Next.js", projType: "Fullstack" },
   { id: 2, title: "ByggExp Admin", image: "/assets/projects/project2.png", link: null, mainTech: "React", projType: "Dashboard" },
   { id: 3, title: "ByggExp App", image: "/assets/projects/project3.png", link: null, techStack: "React Native, MongoDB", mainTech: "React Native", projType: "Mobile" },
   { id: 4, title: "AGRY AB", image: "/assets/projects/project4.png", link: "https://alexgeho.github.io/js-intro-inl-1-webshop/", techStack: "HTML5, SCSS, JavaScript", mainTech: "JavaScript", projType: "Webshop" },
@@ -40,7 +42,27 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
   const extendedProjects = [...projectsData, ...projectsData, ...projectsData];
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [lightbox, setLightbox] = useState<Project | null>(null);
+  const [imgIndex, setImgIndex] = useState<Record<number, number>>({});
   const [currentIndex, setCurrentIndex] = useState(projectsData.length);
+
+  const stopDrag = (e: React.PointerEvent) => e.stopPropagation();
+  const changeImage = (id: number, total: number, dir: number) => {
+    setImgIndex((prev) => {
+      const cur = prev[id] ?? 0;
+      return { ...prev, [id]: (cur + dir + total) % total };
+    });
+  };
+  const openLightbox = (project: Project) => {
+    setLightbox(project);
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
+  };
+  const closeLightbox = () => {
+    setLightbox(null);
+    document.body.style.overflow = "auto";
+    document.body.classList.remove("modal-open");
+  };
   const [isAnimating, setIsAnimating] = useState(true);
   const [startX, setStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
@@ -101,7 +123,10 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeModal();
+      if (e.key === "Escape") {
+        closeLightbox();
+        closeModal();
+      }
     };
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
@@ -149,13 +174,61 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
             <div className="project-slide" key={`${project.id}-${index}`}>
               <div className="project-banner-card">
                 <div className="project-banner-card__info">
-                  <div className="project-img">
+                  <div
+                    className={`project-img ${
+                      project.imageFit === "contain" ? "project-img--contain" : ""
+                    }`}
+                  >
                     <img
-                      src={project.image}
+                      src={
+                        project.images?.[imgIndex[project.id] ?? 0] ??
+                        project.image
+                      }
                       alt={project.title}
                       className="project-img__img"
                       draggable={false}
+                      onClick={() => {
+                        if (!hasDragged) openLightbox(project);
+                      }}
                     />
+                    {project.images && project.images.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          className="project-img__arrow project-img__arrow--prev"
+                          aria-label="Previous image"
+                          onPointerDown={stopDrag}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            changeImage(project.id, project.images!.length, -1);
+                          }}
+                        >
+                          ‹
+                        </button>
+                        <button
+                          type="button"
+                          className="project-img__arrow project-img__arrow--next"
+                          aria-label="Next image"
+                          onPointerDown={stopDrag}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            changeImage(project.id, project.images!.length, 1);
+                          }}
+                        >
+                          ›
+                        </button>
+                        <div className="project-img__dots">
+                          {project.images.map((_, di) => (
+                            <span
+                              key={di}
+                              className={`project-img__dot ${
+                                (imgIndex[project.id] ?? 0) === di ? "active" : ""
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
                   <div className="project-banner-card__content">
                     <h3 className="project-banner-card__title">
@@ -219,8 +292,18 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
             </button>
 
             <div className="projects-modal-content">
-              <div className="projects-modal-hero">
-                <img src={selectedProject.image} alt={selectedProject.title} />
+              <div
+                className={`projects-modal-hero ${
+                  selectedProject.imageFit === "contain"
+                    ? "projects-modal-hero--contain"
+                    : ""
+                }`}
+              >
+                {(selectedProject.images ?? [selectedProject.image]).map(
+                  (src, i) => (
+                    <img key={i} src={src} alt={selectedProject.title} />
+                  )
+                )}
               </div>
 
               <div className="projects-modal-layout">
@@ -264,6 +347,50 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* IMAGE LIGHTBOX */}
+      {lightbox && (
+        <div className="img-lightbox" onClick={closeLightbox}>
+          <button
+            className="img-lightbox__close"
+            onClick={closeLightbox}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+          <div
+            className="img-lightbox__stage"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={lightbox.images?.[imgIndex[lightbox.id] ?? 0] ?? lightbox.image}
+              alt={lightbox.title}
+            />
+            {lightbox.images && lightbox.images.length > 1 && (
+              <>
+                <button
+                  className="img-lightbox__arrow img-lightbox__arrow--prev"
+                  aria-label="Previous image"
+                  onClick={() =>
+                    changeImage(lightbox.id, lightbox.images!.length, -1)
+                  }
+                >
+                  ‹
+                </button>
+                <button
+                  className="img-lightbox__arrow img-lightbox__arrow--next"
+                  aria-label="Next image"
+                  onClick={() =>
+                    changeImage(lightbox.id, lightbox.images!.length, 1)
+                  }
+                >
+                  ›
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

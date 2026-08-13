@@ -2,8 +2,8 @@ import './About.scss'
 import type { Dict } from '@/i18n/dictionaries'
 
 const cardImages = [
-  '/assets/memoji-peace-mini-wite.png',
-  '/assets/memoji-peace-mini.png',
+  '/assets/jag-avatar.png',
+  '/assets/jag-avatar.png',
 ]
 
 export default function About({ dict }: { dict: Dict['about'] }) {

@@ -109,6 +109,61 @@
   .project-img {
     display: flex;
     justify-content: center;
+    position: relative;
+  }
+
+  .project-img__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    color: #111;
+    font-size: 1.4rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    transition: background 0.2s, transform 0.2s;
+    padding-bottom: 3px;
+
+    &:hover {
+      background: #fff;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    &--prev { left: 10px; }
+    &--next { right: 10px; }
+  }
+
+  .project-img__dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 3;
+  }
+
+  .project-img__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.25);
+    transition: background 0.2s, transform 0.2s;
+
+    &.active {
+      background: $text-primary;
+      transform: scale(1.25);
+    }
   }
 
   .project-img__img {
@@ -117,14 +172,27 @@
     object-fit: cover;
     display: block;
     border-radius: 16px;
+    cursor: zoom-in;
 
     @media (min-width: $tablet) {
       height: 200px;
     }
   }
 
+  /* Мокапы устройств (прозрачный фон) — показываем целиком на светлом фоне */
+  .project-img--contain {
+    background: #eef1f5;
+    border-radius: 16px;
+
+    .project-img__img {
+      object-fit: contain;
+      padding: 14px 18px 0;
+      background: transparent;
+    }
+  }
+
   &__info {
-    gap: 0;
+    gap: 14px; /* Отступ картинка -> заголовок, как под шапкой снизу */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -133,6 +201,12 @@
     @media (min-width: $tablet) {
       padding: 24px;
     }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   &__title {
@@ -144,7 +218,7 @@
   }
 
   &__subtitle {
-    font-size: 0.85rem;
+    font-size: 0.95rem; /* Как основной текст (описание) ниже */
     font-weight: 500;
     margin: 0 0 14px 0; /* Воздух между шапкой и описанием */
     color: $text-secondary;
@@ -317,6 +391,23 @@
     object-fit: cover;
     border-radius: 24px;
   }
+
+  /* Галерея мокапов устройств: целиком, на светлом фоне, друг под другом */
+  &--contain {
+    height: auto;
+    background: #eef1f5;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+  }
 }
 
 .projects-modal-content {
@@ -440,6 +531,87 @@
       font-size: 1rem;
       color: $text-secondary;
       font-weight: 600;
+    }
+  }
+}
+
+/* --- Лайтбокс увеличенной картинки --- */
+.img-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+
+  &__stage {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+
+    img {
+      max-width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #111;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+
+    &:hover { transform: scale(1.1); background: #fff; }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #111;
+    font-size: 1.8rem;
+    line-height: 1;
+    padding-bottom: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+
+    &:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+
+    &--prev { left: -8px; }
+    &--next { right: -8px; }
+
+    @media (min-width: $tablet) {
+      &--prev { left: -64px; }
+      &--next { right: -64px; }
     }
   }
 }

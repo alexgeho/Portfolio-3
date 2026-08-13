@@ -45,14 +45,14 @@ export default function ScrollReveal() {
     })
 
     const simpleSelectors = [
-      '.hero__title', '.hero__marquee-wrapper',
+      '.hero__marquee-wrapper',
       '.section-label', '.section-title', '.projects__btn-view',
       '.projects__dots', '.footer__cta', '.footer__contact-card', '.footer__bottom',
     ]
 
     const cascadeSelectors = [
       '.bento-card', '.skill-block', '.experience-item', '.about-card',
-      '.project-banner-card', '.hero__avatar-wrapper', '.footer__about',
+      '.project-banner-card', '.footer__about',
     ]
 
     document.querySelectorAll(simpleSelectors.join(', ')).forEach((el) => {
