@@ -95,8 +95,8 @@
   }
 
   &--img-right {
-    justify-content: center;
-    .bento-card__content { text-align: center; }
+    justify-content: flex-start;
+    .bento-card__content { text-align: left; }
     .bento-card__img { right: 20px; }
   }
 }

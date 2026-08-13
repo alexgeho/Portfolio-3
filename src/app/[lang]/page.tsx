@@ -5,7 +5,6 @@ import Projects from '@/components/Projects/Projects'
 import Skills from '@/components/Skills/Skills'
 import Achievements from '@/components/Achievements/Achievements'
 import Experience from '@/components/Experience/Experience'
-import About from '@/components/About/About'
 import Footer from '@/components/Footer/Footer'
 import FloatingNav from '@/components/FloatingNav/FloatingNav'
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal'
@@ -29,7 +28,6 @@ export default async function Home({
         <Skills dict={dict.skills} />
         <Achievements dict={dict.achievements} />
         <Experience dict={dict.experience} />
-        <About dict={dict.about} />
       </main>
       <Footer dict={dict.footer} />
       <FloatingNav dict={dict.nav} lang={lang} />

@@ -421,6 +421,65 @@
   }
 }
 
+/* Раскладка кейса с чередованием: картинка -> текст -> картинка -> текст */
+.projects-modal-story {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $text-primary;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  &__img {
+    background: #eef1f5;
+    border-radius: 16px;
+    padding: 20px;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 10px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    > p {
+      font-size: 1.05rem;
+      color: $text-secondary;
+      line-height: 1.6;
+    }
+
+    .detail-block {
+      margin-bottom: 2px;
+
+      h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-primary;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      p {
+        font-size: 1.05rem;
+        color: $text-secondary;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
 .projects-modal-layout {
   display: flex;
   gap: 40px;

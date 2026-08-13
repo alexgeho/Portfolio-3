@@ -19,16 +19,16 @@ export default function Footer({ dict }: { dict: Dict['footer'] }) {
           <span className="footer__label">{dict.label}</span>
           <h2 className="footer__title">{dict.title}</h2>
           <div className="footer__btn-wrapper">
-            <a href="mailto:alexander.gerhard@outlook.com?subject=New%20Project%20Inquiry" className="footer__btn">
+            <a href="mailto:alex@alexgeho.dev?subject=New%20Project%20Inquiry" className="footer__btn">
               {dict.startProject}
             </a>
           </div>
         </div>
 
         <div className="footer__contacts">
-          <a href="mailto:alexander.gerhard@outlook.com" className="footer__contact-card">
+          <a href="mailto:alex@alexgeho.dev" className="footer__contact-card">
             <span className="footer__contact-label">{dict.emailMe}</span>
-            <span className="footer__contact-value">alexander.gerhard@outlook.com</span>
+            <span className="footer__contact-value">alex@alexgeho.dev</span>
           </a>
           <a href="https://wa.me/46707577575" target="_blank" rel="noreferrer" className="footer__contact-card">
             <span className="footer__contact-label">{dict.whatsapp}</span>
@@ -63,7 +63,7 @@ export default function Footer({ dict }: { dict: Dict['footer'] }) {
                 <div className="footer__menu-list">
                   <a href="#home">{dict.linkHome}</a>
                   <a href="#projects">{dict.linkWorks}</a>
-                  <a href="#about">{dict.linkAbout}</a>
+                  <a href="#bento-about">{dict.linkAbout}</a>
                 </div>
               </div>
 

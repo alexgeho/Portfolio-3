@@ -11,7 +11,7 @@
 
   &__cta {
     text-align: center;
-    padding: 60px 0 20px;
+    padding: 32px 0 12px;
   }
 
   &__label {
@@ -23,13 +23,13 @@
   }
 
   &__title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: $text-primary;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 
     @media (min-width: $tablet) {
-      font-size: 5rem;
+      font-size: 3.5rem;
     }
   }
 
@@ -133,14 +133,14 @@
   }
 
   &__about-text {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.4;
     color: $text-primary;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 
     @media (min-width: $desktop) {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
     }
 
     span {
@@ -150,13 +150,13 @@
   }
 
   &__about-img {
-    width: 140px;
+    width: 104px;
     height: auto;
     margin-top: auto; /* Выталкиваем картинку вниз */
     display: block;
 
     @media (min-width: $tablet) {
-      width: 180px;
+      width: 120px;
     }
   }
 

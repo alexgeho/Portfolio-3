@@ -35,7 +35,7 @@ export default function Hero({ dict }: { dict: Dict['hero'] }) {
       <div className="container hero__container">
         <div className="hero__avatar-wrapper">
           <img
-            src="/assets/hero/jagBlu.jpg"
+            src="/assets/JagWite.png"
             alt="Alexander Gerhard"
             className="hero__avatar"
           />

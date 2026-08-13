@@ -45,10 +45,10 @@ export default function FloatingNav({ dict, lang }: { dict: Dict['nav']; lang: L
           </a>
 
           <a
-            href="#about"
-            onClick={() => setActiveNav('#about')}
+            href="#bento-about"
+            onClick={() => setActiveNav('#bento-about')}
             aria-label={dict.about}
-            className={`framer-nav-link ${activeNav === '#about' ? 'active' : ''}`}
+            className={`framer-nav-link ${activeNav === '#bento-about' ? 'active' : ''}`}
           >
             <div className="framer-icon-wrapper">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -75,7 +75,7 @@ export default function FloatingNav({ dict, lang }: { dict: Dict['nav']; lang: L
         <div className="framer-divider"></div>
 
         {/* Contact (mail) */}
-        <a href="mailto:alexander.gerhard@outlook.com?subject=New%20Project%20Inquiry" className="framer-nav-primary">
+        <a href="mailto:alex@alexgeho.dev?subject=New%20Project%20Inquiry" className="framer-nav-primary">
           <div className="framer-icon-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>

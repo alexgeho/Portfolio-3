@@ -292,60 +292,99 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
             </button>
 
             <div className="projects-modal-content">
-              <div
-                className={`projects-modal-hero ${
-                  selectedProject.imageFit === "contain"
-                    ? "projects-modal-hero--contain"
-                    : ""
-                }`}
-              >
-                {(selectedProject.images ?? [selectedProject.image]).map(
-                  (src, i) => (
-                    <img key={i} src={src} alt={selectedProject.title} />
-                  )
-                )}
-              </div>
+              {(() => {
+                const imgs = selectedProject.images ?? [selectedProject.image];
+                const paras = selectedProject.fullDescription ?? [];
+                const detailBlocks = (
+                  <>
+                    {selectedProject.techStack && (
+                      <div className="detail-block">
+                        <h4>{dict.techStack}</h4>
+                        <p>{selectedProject.techStack}</p>
+                      </div>
+                    )}
+                    {selectedProject.keyFeatures && (
+                      <div className="detail-block">
+                        <h4>{dict.keyFeatures}</h4>
+                        <p>{selectedProject.keyFeatures}</p>
+                      </div>
+                    )}
+                    {selectedProject.challenges && (
+                      <div className="detail-block">
+                        <h4>{dict.challenges}</h4>
+                        <p>{selectedProject.challenges}</p>
+                      </div>
+                    )}
+                    {selectedProject.link && (
+                      <a
+                        href={selectedProject.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="projects-modal-link"
+                      >
+                        {dict.visitLive}
+                      </a>
+                    )}
+                  </>
+                );
 
-              <div className="projects-modal-layout">
-                <div className="projects-modal-main-text">
-                  <h2>{selectedProject.title}</h2>
-                  <div className="main-desc">
-                    {selectedProject.fullDescription?.map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
-                    ))}
-                  </div>
+                // Кейс с несколькими мокапами: картинка → текст → картинка → текст
+                if (imgs.length > 1) {
+                  const half = Math.ceil(paras.length / 2);
+                  return (
+                    <div className="projects-modal-story">
+                      <h2 className="projects-modal-story__title">
+                        {selectedProject.title}
+                      </h2>
+                      <div className="projects-modal-story__img">
+                        <img src={imgs[0]} alt={selectedProject.title} />
+                      </div>
+                      <div className="projects-modal-story__text">
+                        {paras.slice(0, half).map((p, i) => (
+                          <p key={i}>{p}</p>
+                        ))}
+                      </div>
+                      <div className="projects-modal-story__img">
+                        <img src={imgs[1]} alt={selectedProject.title} />
+                      </div>
+                      <div className="projects-modal-story__text">
+                        {paras.slice(half).map((p, i) => (
+                          <p key={i}>{p}</p>
+                        ))}
+                        {detailBlocks}
+                      </div>
+                    </div>
+                  );
+                }
 
-                  {selectedProject.techStack && (
-                    <div className="detail-block">
-                      <h4>{dict.techStack}</h4>
-                      <p>{selectedProject.techStack}</p>
-                    </div>
-                  )}
-                  {selectedProject.keyFeatures && (
-                    <div className="detail-block">
-                      <h4>{dict.keyFeatures}</h4>
-                      <p>{selectedProject.keyFeatures}</p>
-                    </div>
-                  )}
-                  {selectedProject.challenges && (
-                    <div className="detail-block">
-                      <h4>{dict.challenges}</h4>
-                      <p>{selectedProject.challenges}</p>
-                    </div>
-                  )}
-
-                  {selectedProject.link && (
-                    <a
-                      href={selectedProject.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="projects-modal-link"
+                // Обычный кейс: одна картинка сверху, ниже текст
+                return (
+                  <>
+                    <div
+                      className={`projects-modal-hero ${
+                        selectedProject.imageFit === "contain"
+                          ? "projects-modal-hero--contain"
+                          : ""
+                      }`}
                     >
-                      {dict.visitLive}
-                    </a>
-                  )}
-                </div>
-              </div>
+                      {imgs.map((src, i) => (
+                        <img key={i} src={src} alt={selectedProject.title} />
+                      ))}
+                    </div>
+                    <div className="projects-modal-layout">
+                      <div className="projects-modal-main-text">
+                        <h2>{selectedProject.title}</h2>
+                        <div className="main-desc">
+                          {paras.map((paragraph, index) => (
+                            <p key={index}>{paragraph}</p>
+                          ))}
+                        </div>
+                        {detailBlocks}
+                      </div>
+                    </div>
+                  </>
+                );
+              })()}
             </div>
           </div>
         </div>
