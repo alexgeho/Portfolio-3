@@ -18,7 +18,7 @@ export default function BentoAbout({ dict }: { dict: Dict['bento'] }) {
               <span className="text-dark">{dict.mainTitle.dark}</span> {dict.mainTitle.light}
             </h2>
             <div className="bento-card__img-wrapper">
-              <img src="https://framerusercontent.com/images/1kN4QMOe7JYBGY0nhmg9BO8dGek.png" alt="" />
+              <img src="/assets/jag-memoji-laptop.png" alt="" />
             </div>
           </div>
 
@@ -81,7 +81,7 @@ export default function BentoAbout({ dict }: { dict: Dict['bento'] }) {
               {dict.learningExploring}<br/>
               <span className="text-dark">{dict.learningTopic}</span>
             </h3>
-            <img src="https://framerusercontent.com/images/TSyrVIcVdoum6jU4VGQGBARVkp4.png" alt="" className="bento-card__img-learning" />
+            <img src="/assets/jag-memoji-callme.png" alt="" className="bento-card__img-learning" />
           </div>
 
         </div>
