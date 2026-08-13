@@ -26,6 +26,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Видимый фокус только при навигации с клавиатуры (a11y) */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid $accent-blue;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 /* =========================================
    ГЛОБАЛЬНЫЕ АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
    ========================================= */

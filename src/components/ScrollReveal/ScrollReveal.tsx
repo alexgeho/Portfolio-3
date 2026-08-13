@@ -8,6 +8,12 @@ import { useEffect } from 'react'
  */
 export default function ScrollReveal() {
   useEffect(() => {
+    // Уважаем системную настройку «уменьшить движение»: ничего не прячем и не анимируем
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+    if (prefersReduced) return
+
     let delayCounter = 0
     let timeoutId: ReturnType<typeof setTimeout>
 
@@ -22,9 +28,11 @@ export default function ScrollReveal() {
           setTimeout(() => {
             el.classList.add('is-revealed')
 
+            // После завершения анимации снимаем классы -> элемент виден навсегда
+            // (при скролле назад больше не прячется и не повторяется)
             setTimeout(() => {
               el.classList.remove('reveal-element', 'card-cascade', 'is-revealed')
-            }, 4600)
+            }, 1600)
           }, delayCounter * 100)
 
           delayCounter++

@@ -132,6 +132,18 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
+  // Навигация по мокапам в лайтбоксе стрелками клавиатуры
+  useEffect(() => {
+    if (!lightbox?.images || lightbox.images.length < 2) return;
+    const total = lightbox.images.length;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") changeImage(lightbox.id, total, -1);
+      if (e.key === "ArrowRight") changeImage(lightbox.id, total, 1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
   const transformValue = `translateX(calc(${currentIndex} * (-100% / ${extendedProjects.length}) + ${dragOffset}px))`;
 
   return (
