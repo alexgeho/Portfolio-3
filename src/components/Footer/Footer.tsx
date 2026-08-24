@@ -22,6 +22,15 @@ export default function Footer({ dict }: { dict: Dict['footer'] }) {
             <a href="mailto:alex@alexgeho.dev?subject=New%20Project%20Inquiry" className="footer__btn">
               {dict.startProject}
             </a>
+            <a
+              href="/cv/alexander-gerhard-cv.pdf"
+              target="_blank"
+              rel="noreferrer"
+              download
+              className="footer__btn footer__btn--secondary"
+            >
+              {dict.downloadCv}
+            </a>
           </div>
         </div>
 
@@ -72,6 +81,7 @@ export default function Footer({ dict }: { dict: Dict['footer'] }) {
                 <div className="footer__menu-list">
                   <a href="https://www.linkedin.com/in/alexandergerhard/" target="_blank" rel="noreferrer">LinkedIn</a>
                   <a href="https://github.com/alexgeho" target="_blank" rel="noreferrer">GitHub</a>
+                  <a href="/cv/alexander-gerhard-cv.pdf" target="_blank" rel="noreferrer" download>{dict.linkCv}</a>
                 </div>
               </div>
 

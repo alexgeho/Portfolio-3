@@ -11,6 +11,7 @@ interface StaticProject {
   images?: string[];
   imageFit?: "cover" | "contain";
   link: string | null;
+  repo?: string;
   techStack?: string;
   mainTech: string;
   projType: string;
@@ -25,11 +26,11 @@ interface Project extends StaticProject {
 }
 
 const staticProjects: StaticProject[] = [
-  { id: 1, title: "ByggExp", image: "/assets/portfolio/byggexp-web1.png", images: ["/assets/portfolio/byggexp-web1.png", "/assets/portfolio/byggexp-web2.png"], imageFit: "contain", link: "https://byggexp.se/", techStack: "Next.js, MongoDB", mainTech: "Next.js", projType: "Fullstack" },
-  { id: 2, title: "ByggExp Admin", image: "/assets/projects/project2.png", link: null, mainTech: "React", projType: "Dashboard" },
-  { id: 3, title: "ByggExp App", image: "/assets/projects/project3.png", link: null, techStack: "React Native, MongoDB", mainTech: "React Native", projType: "Mobile" },
-  { id: 4, title: "AGRY AB", image: "/assets/projects/project4.png", link: "https://alexgeho.github.io/js-intro-inl-1-webshop/", techStack: "HTML5, SCSS, JavaScript", mainTech: "JavaScript", projType: "Webshop" },
-  { id: 5, title: "Blogger Backend", image: "/assets/projects/project5.png", link: null, techStack: "NestJS, TypeScript, MongoDB, REST API", mainTech: "NestJS", projType: "REST API" },
+  { id: 1, title: "ByggExp", image: "/assets/portfolio/byggexp-web1.png", images: ["/assets/portfolio/byggexp-web1.png", "/assets/portfolio/byggexp-web2.png"], imageFit: "contain", link: "https://byggexp.se/", repo: "https://github.com/alexgeho/ByggExp.se", techStack: "Next.js, MongoDB", mainTech: "Next.js", projType: "Fullstack" },
+  { id: 2, title: "ByggExp Admin", image: "/assets/projects/project2.png", images: ["/assets/projects/project2.png", "/assets/projects/byggexp-admin2.png"], link: "https://admin.byggexp.se/", mainTech: "React", projType: "Dashboard" },
+  { id: 3, title: "ByggExp App", image: "/assets/projects/byggexp-app1.png", images: ["/assets/projects/byggexp-app1.png", "/assets/projects/byggexp-app2.png"], imageFit: "contain", link: null, repo: "https://github.com/alexgeho/byggexp-app", techStack: "React Native, MongoDB", mainTech: "React Native", projType: "Mobile" },
+  { id: 4, title: "AGRY AB", image: "/assets/projects/project4.png", link: "https://alexgeho.github.io/js-intro-inl-1-webshop/", repo: "https://github.com/alexgeho/js-intro-inl-1-webshop", techStack: "HTML5, SCSS, JavaScript", mainTech: "JavaScript", projType: "Webshop" },
+  { id: 5, title: "Blogger Backend", image: "/assets/projects/project5.png", link: null, repo: "https://github.com/alexgeho/blogger-platform-Nestjs", techStack: "NestJS, TypeScript, MongoDB, REST API", mainTech: "NestJS", projType: "REST API" },
   { id: 6, title: "Express Platform", image: "/assets/projects/project6.png", link: null, techStack: "Express, TypeScript, Node.js", mainTech: "Express", projType: "REST API" },
 ];
 
@@ -327,15 +328,29 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
                         <p>{selectedProject.challenges}</p>
                       </div>
                     )}
-                    {selectedProject.link && (
-                      <a
-                        href={selectedProject.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="projects-modal-link"
-                      >
-                        {dict.visitLive}
-                      </a>
+                    {(selectedProject.link || selectedProject.repo) && (
+                      <div className="projects-modal-links">
+                        {selectedProject.link && (
+                          <a
+                            href={selectedProject.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="projects-modal-link"
+                          >
+                            {dict.visitLive}
+                          </a>
+                        )}
+                        {selectedProject.repo && (
+                          <a
+                            href={selectedProject.repo}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="projects-modal-link projects-modal-link--ghost"
+                          >
+                            {dict.viewCode}
+                          </a>
+                        )}
+                      </div>
                     )}
                   </>
                 );

@@ -19,6 +19,7 @@ export interface Dict {
     home: string
     projects: string
     about: string
+    resume: string // aria-label for the CV/résumé link
     switchTo: string // label for the other language
   }
   hero: {
@@ -46,6 +47,7 @@ export interface Dict {
     keyFeatures: string
     challenges: string
     visitLive: string
+    viewCode: string
     typeLabel: string
     stackLabel: string
     subtitles: string[]
@@ -76,8 +78,10 @@ export interface Dict {
     label: string
     title: string
     startProject: string
+    downloadCv: string
     emailMe: string
     whatsapp: string
+    linkCv: string
     aboutLine1: string
     aboutLine2: string
     menuTitle: string
@@ -102,6 +106,7 @@ const sv: Dict = {
     home: 'Hem',
     projects: 'Projekt',
     about: 'Om mig',
+    resume: 'Ladda ner CV',
     switchTo: 'English',
   },
   hero: {
@@ -135,6 +140,7 @@ const sv: Dict = {
     keyFeatures: 'Nyckelfunktioner',
     challenges: 'Utmaningar & Lösningar',
     visitLive: 'Besök webbplatsen →',
+    viewCode: 'Visa kod →',
     typeLabel: 'Typ',
     stackLabel: 'Stack',
     subtitles: [
@@ -234,9 +240,9 @@ const sv: Dict = {
     label: 'PORTFÖLJFAKTA',
     title: 'Professionellt fokus',
     cards: [
-      { value: '6+', caption: 'Fullstack-projekt' },
-      { value: 'Ren', caption: 'Fokus på arkitektur' },
-      { value: '100%', caption: 'Skalbara webblösningar' },
+      { value: '2015', caption: 'Kodar sedan' },
+      { value: 'Live', caption: 'SaaS i produktion (ByggExp)' },
+      { value: '3', caption: 'Integrerade appar: webb · admin · mobil' },
     ],
   },
   experience: {
@@ -289,8 +295,10 @@ const sv: Dict = {
     label: 'Hör av dig',
     title: 'Låt oss ta kontakt',
     startProject: 'Starta projekt',
+    downloadCv: 'Ladda ner CV',
     emailMe: 'Mejla mig',
     whatsapp: 'WhatsApp',
+    linkCv: 'CV',
     aboutLine1: 'Hej, jag är Alexander.',
     aboutLine2: 'Jag trycker på knappar och\ngränssnitt uppstår.',
     menuTitle: 'Meny',
@@ -315,6 +323,7 @@ const en: Dict = {
     home: 'Home',
     projects: 'Projects',
     about: 'About',
+    resume: 'Download CV',
     switchTo: 'Svenska',
   },
   hero: {
@@ -348,6 +357,7 @@ const en: Dict = {
     keyFeatures: 'Key Features',
     challenges: 'Challenges & Solutions',
     visitLive: 'Visit Live Website →',
+    viewCode: 'View code →',
     typeLabel: 'Type',
     stackLabel: 'Stack',
     subtitles: [
@@ -447,9 +457,9 @@ const en: Dict = {
     label: 'PORTFOLIO FACTS',
     title: 'Professional Focus',
     cards: [
-      { value: '6+', caption: 'Fullstack Projects' },
-      { value: 'Clean', caption: 'Architecture Focus' },
-      { value: '100%', caption: 'Scalable Web Solutions' },
+      { value: '2015', caption: 'Coding since' },
+      { value: 'Live', caption: 'SaaS in production (ByggExp)' },
+      { value: '3', caption: 'Integrated apps: web · admin · mobile' },
     ],
   },
   experience: {
@@ -502,8 +512,10 @@ const en: Dict = {
     label: 'Get in Touch',
     title: "Let's Connect",
     startProject: 'Start Project',
+    downloadCv: 'Download CV',
     emailMe: 'Email Me',
     whatsapp: 'WhatsApp',
+    linkCv: 'CV',
     aboutLine1: "Hi, I'm Alexander.",
     aboutLine2: 'I press buttons and\ninterfaces happen.',
     menuTitle: 'Menu',
