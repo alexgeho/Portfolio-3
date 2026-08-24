@@ -27,7 +27,7 @@ interface Project extends StaticProject {
 
 const staticProjects: StaticProject[] = [
   { id: 1, title: "ByggExp", image: "/assets/portfolio/byggexp-web1.png", images: ["/assets/portfolio/byggexp-web1.png", "/assets/portfolio/byggexp-web2.png"], imageFit: "contain", link: "https://byggexp.se/", repo: "https://github.com/alexgeho/ByggExp.se", techStack: "Next.js, MongoDB", mainTech: "Next.js", projType: "Fullstack" },
-  { id: 2, title: "ByggExp Admin", image: "/assets/projects/project2.png", images: ["/assets/projects/project2.png", "/assets/projects/byggexp-admin2.png"], link: "https://admin.byggexp.se/", mainTech: "React", projType: "Dashboard" },
+  { id: 2, title: "ByggExp Admin", image: "/assets/projects/byggexp-admin1.png", images: ["/assets/projects/byggexp-admin1.png", "/assets/projects/byggexp-admin2.png"], link: "https://admin.byggexp.se/", mainTech: "React", projType: "Dashboard" },
   { id: 3, title: "ByggExp App", image: "/assets/projects/byggexp-app1.png", images: ["/assets/projects/byggexp-app1.png", "/assets/projects/byggexp-app2.png"], imageFit: "contain", link: null, repo: "https://github.com/alexgeho/byggexp-app", techStack: "React Native, MongoDB", mainTech: "React Native", projType: "Mobile" },
   { id: 4, title: "AGRY AB", image: "/assets/projects/project4.png", link: "https://alexgeho.github.io/js-intro-inl-1-webshop/", repo: "https://github.com/alexgeho/js-intro-inl-1-webshop", techStack: "HTML5, SCSS, JavaScript", mainTech: "JavaScript", projType: "Webshop" },
   { id: 5, title: "Blogger Backend", image: "/assets/projects/project5.png", link: null, repo: "https://github.com/alexgeho/blogger-platform-Nestjs", techStack: "NestJS, TypeScript, MongoDB, REST API", mainTech: "NestJS", projType: "REST API" },
