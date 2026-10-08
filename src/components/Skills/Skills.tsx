@@ -5,6 +5,8 @@ const skillsData = [
   {
     items: [
       { name: 'React', icon: '/assets/skills/react.svg' },
+      { name: 'Next.js', icon: '/assets/skills/nextjs.svg' },
+      { name: 'React Native', icon: '/assets/skills/react.svg' },
       { name: 'TypeScript', icon: '/assets/skills/typescript.svg' },
       { name: 'JavaScript', icon: '/assets/skills/js.svg' },
       { name: 'HTML5', icon: '/assets/skills/html.svg' },

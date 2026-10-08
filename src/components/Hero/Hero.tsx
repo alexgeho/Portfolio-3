@@ -18,8 +18,8 @@ const badgesRow2 = [
 ]
 
 export default function Hero({ dict }: { dict: Dict['hero'] }) {
-  const renderContent = (data: typeof badgesRow1) => (
-    <div className="hero__marquee-content">
+  const renderContent = (data: typeof badgesRow1, hidden = false) => (
+    <div className="hero__marquee-content" aria-hidden={hidden || undefined}>
       {data.map((badge, i) => (
         <span className="badge" style={{ backgroundColor: badge.bg, color: badge.color }} key={i}>
           <img src={badge.icon} alt="" className="badge__img" /> {badge.text}
@@ -43,7 +43,7 @@ export default function Hero({ dict }: { dict: Dict['hero'] }) {
         </div>
 
         <h1 className="hero__title">
-          {dict.greeting}
+          {dict.greeting}{' '}
           <span className="hero__subtitle">
             {subtitleLines.map((line, i) => (
               <span key={i}>
@@ -58,12 +58,12 @@ export default function Hero({ dict }: { dict: Dict['hero'] }) {
       <div className="hero__marquee-wrapper">
         <div className="hero__marquee-track">
           {renderContent(badgesRow1)}
-          {renderContent(badgesRow1)}
+          {renderContent(badgesRow1, true)}
         </div>
 
         <div className="hero__marquee-track reverse">
           {renderContent(badgesRow2)}
-          {renderContent(badgesRow2)}
+          {renderContent(badgesRow2, true)}
         </div>
       </div>
     </section>

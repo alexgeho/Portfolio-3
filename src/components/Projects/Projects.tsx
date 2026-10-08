@@ -183,8 +183,17 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
           }}
           onTransitionEnd={onTransitionEnd}
         >
-          {extendedProjects.map((project, index) => (
-            <div className="project-slide" key={`${project.id}-${index}`}>
+          {extendedProjects.map((project, index) => {
+            // Копии для бесконечной карусели скрыты от скринридеров и Tab
+            const isClone =
+              index < projectsData.length || index >= projectsData.length * 2;
+            return (
+            <div
+              className="project-slide"
+              key={`${project.id}-${index}`}
+              aria-hidden={isClone || undefined}
+              inert={isClone || undefined}
+            >
               <div className="project-banner-card">
                 <div className="project-banner-card__info">
                   <div
@@ -275,7 +284,8 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

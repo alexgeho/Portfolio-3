@@ -36,11 +36,11 @@ export default function Footer({ dict }: { dict: Dict['footer'] }) {
 
         <div className="footer__contacts">
           <a href="mailto:alex@alexgeho.dev" className="footer__contact-card">
-            <span className="footer__contact-label">{dict.emailMe}</span>
+            <span className="footer__contact-label">{dict.emailMe}</span>{' '}
             <span className="footer__contact-value">alex@alexgeho.dev</span>
           </a>
           <a href="https://wa.me/46707577575" target="_blank" rel="noreferrer" className="footer__contact-card">
-            <span className="footer__contact-label">{dict.whatsapp}</span>
+            <span className="footer__contact-label">{dict.whatsapp}</span>{' '}
             <span className="footer__contact-value">+46 70 757 75 75</span>
           </a>
         </div>

@@ -221,6 +221,8 @@ const sv: Dict = {
     categories: ['Frontend', 'Backend', 'Verktyg & DevOps', 'Design & Arbetsflöde'],
     descriptions: {
       React: 'För snabba, interaktiva gränssnitt',
+      'Next.js': 'SEO-vänliga webbappar med SSR',
+      'React Native': 'Mobilappar för iOS och Android',
       TypeScript: 'Typad JavaScript för säkrare kod',
       JavaScript: 'Kärnlogik för webben & DOM-hantering',
       HTML5: 'Semantisk markup & tillgänglighet',
@@ -438,6 +440,8 @@ const en: Dict = {
     categories: ['Frontend', 'Backend', 'Tools & DevOps', 'Design & Workflow'],
     descriptions: {
       React: 'For building fast, interactive UIs',
+      'Next.js': 'SEO-friendly web apps with SSR',
+      'React Native': 'Mobile apps for iOS and Android',
       TypeScript: 'Typed JavaScript for safer code',
       JavaScript: 'Core web logic & DOM manipulation',
       HTML5: 'Semantic markup & accessibility',
