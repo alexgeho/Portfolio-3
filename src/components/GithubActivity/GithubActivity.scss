@@ -5,6 +5,7 @@
 }
 
 .github-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -18,6 +19,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding-right: 56px;
   }
 
   &__label {
@@ -32,31 +34,54 @@
     color: $text-primary;
   }
 
-  // rtl keeps the newest weeks visible when the grid overflows on phones
-  &__scroll {
-    overflow-x: auto;
-    direction: rtl;
-    scrollbar-width: none;
+  &__arrow {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform $transition;
+  }
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  &:hover &__arrow {
+    transform: translate(2px, -2px);
   }
 
   &__grid {
-    direction: ltr;
     display: grid;
-    grid-template-rows: repeat(7, 11px);
     grid-auto-flow: column;
-    grid-auto-columns: 11px;
+    grid-auto-columns: minmax(0, 1fr);
     gap: 3px;
-    width: max-content;
+  }
 
-    @media (min-width: $desktop) {
-      width: 100%;
-      grid-template-rows: repeat(7, auto);
-      grid-auto-columns: 1fr;
+  &__week {
+    display: grid;
+    grid-template-rows: 16px repeat(7, auto);
+    align-content: start;
+    gap: 3px;
+
+    &--old {
+      @media (max-width: $tablet - 1) {
+        display: none;
+      }
     }
+  }
+
+  // Labels may be wider than a week column; neighbours are always empty
+  &__month {
+    font-size: 0.7rem;
+    line-height: 16px;
+    color: $text-secondary;
+    white-space: nowrap;
+    width: 0;
+    overflow: visible;
   }
 
   &__cell {
