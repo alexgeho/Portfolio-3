@@ -26,6 +26,10 @@ export interface Dict {
     greeting: string
     subtitle: string
   }
+  github: {
+    locale: string
+    contributions: string
+  }
   bento: {
     mainTitle: { dark: string; light: string }
     basedInLabel: string
@@ -112,6 +116,10 @@ const sv: Dict = {
   hero: {
     greeting: 'Hej, jag heter Alexander Gerhard.',
     subtitle: 'Förvandlar idéer till skalbara\nwebblösningar.',
+  },
+  github: {
+    locale: 'sv-SE',
+    contributions: 'bidrag senaste året',
   },
   bento: {
     mainTitle: {
@@ -331,6 +339,10 @@ const en: Dict = {
   hero: {
     greeting: "Hi, I'm Alexander Gerhard.",
     subtitle: 'Turning ideas into scalable\nweb solutions.',
+  },
+  github: {
+    locale: 'en-US',
+    contributions: 'contributions in the last year',
   },
   bento: {
     mainTitle: {

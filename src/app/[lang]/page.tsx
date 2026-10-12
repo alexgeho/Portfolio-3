@@ -1,5 +1,6 @@
 import { getDict, type Lang } from '@/i18n/dictionaries'
 import Hero from '@/components/Hero/Hero'
+import GithubActivity from '@/components/GithubActivity/GithubActivity'
 import BentoAbout from '@/components/BentoAbout/BentoAbout'
 import Projects from '@/components/Projects/Projects'
 import Skills from '@/components/Skills/Skills'
@@ -23,6 +24,7 @@ export default async function Home({
     <div className="app">
       <main>
         <Hero dict={dict.hero} />
+        <GithubActivity dict={dict.github} />
         <BentoAbout dict={dict.bento} />
         <Projects dict={dict.projects} />
         <Skills dict={dict.skills} />
