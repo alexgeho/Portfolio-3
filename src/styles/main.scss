@@ -71,7 +71,7 @@ button:focus-visible,
 /* --- Класс, добавляемый скриптом, когда элемент попадает в экран --- */
 .is-revealed {
   /* Базовая анимация для заголовков (быстро снизу) */
-  animation: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: revealText 1.2s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
 }
 
 /* Отменяем базовую анимацию для самой карточки-контейнера */
@@ -85,34 +85,34 @@ button:focus-visible,
 .is-revealed.card-cascade > *:nth-child(1),
 .is-revealed.card-cascade .bento-card__content > *:nth-child(1),
 .is-revealed.card-cascade .project-banner-card__info > *:nth-child(1) {
-  animation: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: revealText 1.2s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
   animation-delay: 0.1s;
 }
 
 .is-revealed.card-cascade > *:nth-child(2),
 .is-revealed.card-cascade .bento-card__content > *:nth-child(2),
 .is-revealed.card-cascade .project-banner-card__info > *:nth-child(2) {
-  animation: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: revealText 1.2s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
   animation-delay: 0.25s;
 }
 
 .is-revealed.card-cascade > *:nth-child(3),
 .is-revealed.card-cascade .bento-card__content > *:nth-child(3),
 .is-revealed.card-cascade .project-banner-card__info > *:nth-child(3) {
-  animation: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: revealText 1.2s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
   animation-delay: 0.4s;
 }
 
 .is-revealed.card-cascade > *:nth-child(4),
 .is-revealed.card-cascade .bento-card__content > *:nth-child(4),
 .is-revealed.card-cascade .project-banner-card__info > *:nth-child(4) {
-  animation: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: revealText 1.2s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
   animation-delay: 0.55s;
 }
 
 /* --- КАРТИНКИ ПОЯВЛЯЮТСЯ ТАК ЖЕ, КАК ТЕКСТ (сдвиг снизу) --- */
 .is-revealed.card-cascade img {
-  animation: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+  animation: revealText 1.2s cubic-bezier(0.25, 0.8, 0.3, 1) forwards !important;
   animation-delay: 0.5s !important; /* Появляется последней в каскаде */
 }
 
@@ -125,7 +125,7 @@ button:focus-visible,
 @keyframes revealText {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;

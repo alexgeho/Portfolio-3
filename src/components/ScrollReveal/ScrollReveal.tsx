@@ -32,7 +32,7 @@ export default function ScrollReveal() {
             // (при скролле назад больше не прячется и не повторяется)
             setTimeout(() => {
               el.classList.remove('reveal-element', 'card-cascade', 'is-revealed')
-            }, 1600)
+            }, 2400)
           }, delayCounter * 100)
 
           delayCounter++

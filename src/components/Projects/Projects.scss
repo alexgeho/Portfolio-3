@@ -300,29 +300,81 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 4px;
   margin-top: 40px;
 
   .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.15);
+    width: 24px;
+    height: 24px;
     border: none;
-    cursor: pointer;
-    transition:
-      background-color 0.3s,
-      transform 0.3s;
     padding: 0;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    &.active {
+    &::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.15);
+      transition:
+        background-color 0.3s,
+        transform 0.3s;
+    }
+
+    &.active::before {
       background-color: $text-primary;
       transform: scale(1.3);
     }
 
-    &:hover:not(.active) {
+    &:hover:not(.active)::before {
       background-color: rgba(0, 0, 0, 0.3);
     }
+  }
+}
+
+.projects__nav {
+  width: 48px;
+  height: 48px;
+  margin: 0 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: $text-primary;
+  font-size: 28px;
+  line-height: 1;
+  padding-bottom: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects__dots {
+    gap: 0;
+
+    .dot {
+      width: 18px;
+
+      &::before {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  .projects__nav {
+    width: 40px;
+    height: 40px;
+    margin: 0 6px;
   }
 }
 

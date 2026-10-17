@@ -298,6 +298,13 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
       {/* DOTS */}
       <div className="container">
         <div className="projects__dots">
+          <button
+            className="projects__nav"
+            onClick={() => { setIsAnimating(true); setCurrentIndex((prev) => prev - 1); }}
+            aria-label="Previous project"
+          >
+            ‹
+          </button>
           {projectsData.map((_, index) => (
             <button
               key={index}
@@ -306,6 +313,13 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+          <button
+            className="projects__nav"
+            onClick={() => { setIsAnimating(true); setCurrentIndex((prev) => prev + 1); }}
+            aria-label="Next project"
+          >
+            ›
+          </button>
         </div>
       </div>
 
