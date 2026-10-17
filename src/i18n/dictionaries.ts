@@ -155,6 +155,12 @@ const sv: Dict = {
       'Live SaaS-plattform',
       'Adminpanel i realtid',
       'Plattformsoberoende app',
+      'Prefab-armering, leads',
+      'Betongplattor, leads',
+      'Takläggare, lokal SEO',
+      'Hälsoinfo & app',
+      'SEO för byggmarknad',
+      'WordPress-redesign',
       'E-handelsbutik',
       'Backend-tjänst',
       'Backend-tjänst',
@@ -188,6 +194,72 @@ const sv: Dict = {
           'Mobilapplikation utvecklad för byggföretag med fokus på enkel rapportering och uppföljning direkt från arbetsplatsen.',
           'Integrerad med ByggExps adminpanel, backend och databas för synkronisering av projekt-, personal- och verksamhetsdata i realtid.',
         ],
+      },
+      {
+        description:
+          'Svensk webbplats för AGRY OÜ som tillverkar prefab-armering i Estland – byggd för offertförfrågningar från hela Sverige.',
+        fullDescription: [
+          'Snabb statisk Next.js-sajt med offertformulär i hero där kunden kan bifoga ritning eller bockningslista (PHP-mailhanterare).',
+          'Armeringskalkylator, 10 produktsidor, 12 stadssidor och 24 guider med strukturerad data och en SEO-driven innehållsplan.',
+          'Automatisk deploy till webbhotell via GitHub Actions (FTPS). Live med 56 indexerbara sidor.',
+        ],
+        keyFeatures: 'Offertformulär med filuppladdning, armeringskalkylator, stads- och produktsidor',
+        challenges: 'Nå kunder i hela Sverige med en statisk sajt och lokal SEO',
+      },
+      {
+        description:
+          'Leadsajt för Agry Entreprenad AB som gjuter betongplattor och grunder i Stockholm och Dalarna.',
+        fullDescription: [
+          'Statisk Next.js-sajt med offertformulär (uppladdning av ritningar) och tre pris- och mängdkalkylatorer.',
+          '8 tjänstesidor, 4 prissidor, 36 lokala områdessidor och 42 bloggartiklar med schema markup och internlänkning.',
+          'CI/CD med GitHub Actions till webbhotell. Live med 103 sidor i sitemap.',
+        ],
+        keyFeatures: 'Offertformulär, priskalkylatorer, lokala sidor och blogg',
+        challenges: 'Skala upp lokala sidor utan duplicerat innehåll',
+      },
+      {
+        description:
+          'Webbplats för Geal Entreprenad AB – takbyte och takrenovering för villor i Stockholm och Dalarna.',
+        fullDescription: [
+          'Snabb statisk HTML/CSS/JavaScript-sajt med tjänstesidor, artiklar och en kalkylator för takbyte.',
+          '37 lokala sidor ”takläggare i [område]” som hålls unika och valideras före varje deploy.',
+          'Offertformulär i PHP som loggar varje lead. Deploy via GitHub Actions. Live med 89 sidor i sitemap.',
+        ],
+        keyFeatures: 'Takbyteskalkylator, lokala sidor, offertformulär med leadlogg',
+        challenges: 'Unika lokala sidor i stor skala',
+      },
+      {
+        description:
+          'Informationssajt som hjälper svenskar med högt kolesterol att förstå sina värden och sänka LDL – plus landningssida för en iPhone-app.',
+        fullDescription: [
+          'Statisk Next.js-sajt med pillar/cluster-struktur: högt kolesterol, LDL-värden, symtom, kost och sänkning utan medicin.',
+          'Alla fakta kopplade till källor (1177, Livsmedelsverket, ESC/EAS) och märkta med MedicalWebPage-schema.',
+          'Deploy med GitHub Actions över SSH/rsync. Live sedan oktober 2026.',
+        ],
+        keyFeatures: 'Pillar/cluster-innehåll, app-landningssida, ljust och mörkt tema',
+        challenges: 'Medicinskt innehåll som är korrekt och källhänvisat',
+      },
+      {
+        description:
+          'SEO för Byggtorg – en marknadsplats där husägare i Stockholm får offerter från hantverkare.',
+        fullDescription: [
+          'SEO-arkitektur och innehåll för en WordPress-sajt: tjänstesidor, prisguider, ROT-kalkylator och lokala sidor per stadsdel.',
+          'Egna Python-skript mot WordPress REST API för att generera, granska och publicera sidor i batchar med backup.',
+          'Teknisk audit i Search Console, sitemap, redirects och noindex för tunna sidor. Fakta kontrollerade mot Boverket och Skatteverket.',
+        ],
+        keyFeatures: 'Lokala landningssidor, prisguider, ROT-kalkylator, partnerformulär',
+        challenges: 'Många lokala sidor utan att bli doorway-sidor',
+      },
+      {
+        description:
+          'Redesignkoncept för en modellfotografs webbplats i Stockholm – testuppdrag för en svensk webbyrå.',
+        fullDescription: [
+          'Child theme till WordPress-temat Powder; 12 sidor ombyggda med originalinnehåll i ett nytt designsystem.',
+          'Helskärmsvideo i hero, bildkarusell, masonry-galleri med lightbox, priskort och ny mobilmeny.',
+          'Alla sidor byggda med Gutenberg-block så att kunden själv kan ändra text och bilder.',
+        ],
+        keyFeatures: 'Videohero, galleri med lightbox, priskort, redigerbart i Gutenberg',
+        challenges: 'Nytt designsystem utan att tappa originalinnehållet',
       },
       {
         description:
@@ -378,6 +450,12 @@ const en: Dict = {
       'Live SaaS platform',
       'Real-time admin panel',
       'Cross-platform app',
+      'Prefab rebar, lead-gen',
+      'Concrete slabs, lead-gen',
+      'Roofing, local SEO',
+      'Health info & app',
+      'SEO for a contractor marketplace',
+      'WordPress redesign',
       'E-commerce shop',
       'Backend service',
       'Backend service',
@@ -411,6 +489,72 @@ const en: Dict = {
           'Mobile application built for construction companies with a focus on easy reporting and follow-up directly from the job site.',
           "Integrated with ByggExp's admin panel, backend and database to synchronise project, staff and operational data in real time.",
         ],
+      },
+      {
+        description:
+          'Swedish website for AGRY OÜ, a prefab reinforcement producer in Estonia – built to bring quote requests from all of Sweden.',
+        fullDescription: [
+          'Fast static Next.js site with a hero quote form where customers can upload a drawing or bending schedule (PHP mail handler).',
+          'Rebar calculator, 10 product pages, 12 city pages and 24 guides with structured data and an SEO-driven content plan.',
+          'Deployed automatically to shared hosting via GitHub Actions (FTPS). Live with 56 indexable pages.',
+        ],
+        keyFeatures: 'Quote form with file upload, rebar calculator, city and product pages',
+        challenges: 'Reaching customers across Sweden with a static site and local SEO',
+      },
+      {
+        description:
+          'Lead-gen website for Agry Entreprenad AB, which casts concrete slabs and foundations in Stockholm and Dalarna.',
+        fullDescription: [
+          'Static Next.js site with a quote form (drawing upload) and three price and quantity calculators.',
+          '8 service pages, 4 price pages, 36 local area pages and 42 blog articles with schema markup and internal linking.',
+          'CI/CD with GitHub Actions to shared hosting. Live with 103 pages in the sitemap.',
+        ],
+        keyFeatures: 'Quote form, price calculators, local pages and blog',
+        challenges: 'Scaling local pages without duplicate content',
+      },
+      {
+        description:
+          'Website for Geal Entreprenad AB – roof replacement and renovation for houses in Stockholm and Dalarna.',
+        fullDescription: [
+          'Fast static HTML/CSS/JavaScript site with service pages, articles and a roof replacement calculator.',
+          '37 local “roofer in [area]” pages, kept unique and validated before each deploy.',
+          'PHP quote form that logs every lead. Deployed via GitHub Actions. Live with 89 pages in the sitemap.',
+        ],
+        keyFeatures: 'Roof replacement calculator, local pages, quote form with lead log',
+        challenges: 'Unique local pages at scale',
+      },
+      {
+        description:
+          'Health info site that helps Swedes with high cholesterol understand their values and lower LDL – plus a landing page for an iPhone app.',
+        fullDescription: [
+          'Static Next.js site with a pillar/cluster structure: high cholesterol, LDL values, symptoms, diet and lowering without medication.',
+          'All facts tied to cited sources (1177, Livsmedelsverket, ESC/EAS) and marked up with MedicalWebPage schema.',
+          'Deployed with GitHub Actions over SSH/rsync. Live since October 2026.',
+        ],
+        keyFeatures: 'Pillar/cluster content, app landing page, light and dark theme',
+        challenges: 'Medical content that is accurate and sourced',
+      },
+      {
+        description:
+          'SEO for Byggtorg – a marketplace where homeowners in Stockholm get quotes from contractors.',
+        fullDescription: [
+          'SEO architecture and content for a WordPress site: service pages, price guides, a ROT calculator and local pages per district.',
+          'Custom Python scripts on the WordPress REST API to generate, review and publish pages in batches with backups.',
+          'Technical audit in Search Console, sitemap, redirects and noindex for thin pages. Facts checked against Boverket and Skatteverket.',
+        ],
+        keyFeatures: 'Local landing pages, price guides, ROT calculator, partner form',
+        challenges: 'Many local pages without turning into doorway pages',
+      },
+      {
+        description:
+          "Redesign concept of a Stockholm model photographer's website – a test assignment for a Swedish web agency.",
+        fullDescription: [
+          'Child theme for the Powder WordPress theme; 12 pages rebuilt with the original content in a new design system.',
+          'Full-screen video hero, image carousel, masonry gallery with lightbox, price cards and a new mobile menu.',
+          'All pages use standard Gutenberg blocks, so the client can edit text and photos in the editor.',
+        ],
+        keyFeatures: 'Video hero, gallery with lightbox, price cards, editable in Gutenberg',
+        challenges: 'A new design system without losing the original content',
       },
       {
         description:
