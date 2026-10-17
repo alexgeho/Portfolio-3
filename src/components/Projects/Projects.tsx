@@ -123,6 +123,15 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
     }
   };
 
+  const goPrev = () => {
+    setIsAnimating(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+  const goNext = () => {
+    setIsAnimating(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
   const handleDotClick = (index: number) => {
     setIsAnimating(true);
     setCurrentIndex(projectsData.length + index);
@@ -161,14 +170,22 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
           <span className="section-label">{dict.label}</span>
           <div className="projects__header-top">
             <h2 className="section-title">{dict.title}</h2>
-            <a
-              href="https://github.com/alexgeho"
-              target="_blank"
-              rel="noreferrer"
-              className="projects__btn-view"
-            >
-              {dict.viewGithub}
-            </a>
+            <div className="projects__header-actions">
+              <button className="projects__nav" onClick={goPrev} aria-label="Previous project">
+                ‹
+              </button>
+              <button className="projects__nav" onClick={goNext} aria-label="Next project">
+                ›
+              </button>
+              <a
+                href="https://github.com/alexgeho"
+                target="_blank"
+                rel="noreferrer"
+                className="projects__btn-view"
+              >
+                {dict.viewGithub}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -300,7 +317,7 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
         <div className="projects__dots">
           <button
             className="projects__nav"
-            onClick={() => { setIsAnimating(true); setCurrentIndex((prev) => prev - 1); }}
+            onClick={goPrev}
             aria-label="Previous project"
           >
             ‹
@@ -315,7 +332,7 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
           ))}
           <button
             className="projects__nav"
-            onClick={() => { setIsAnimating(true); setCurrentIndex((prev) => prev + 1); }}
+            onClick={goNext}
             aria-label="Next project"
           >
             ›

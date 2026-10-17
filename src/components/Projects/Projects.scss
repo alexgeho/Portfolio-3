@@ -336,6 +336,25 @@
   }
 }
 
+.projects__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .projects__nav {
+    margin: 0;
+    width: 48px;
+    height: 48px;
+  }
+
+  .projects__btn-view {
+    margin-left: 12px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
 .projects__nav {
   width: 48px;
   height: 48px;
