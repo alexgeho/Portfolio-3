@@ -1,5 +1,10 @@
 # alexgeho.dev — worklog (newest first)
 
+## 2026-10-18 — carousel arrows by title, "CV" label in dock (live, 8c76ea6)
+- Projects header: prev/next arrows moved next to "Senaste arbeten"; "Visa GitHub" stands alone on the right.
+- Floating nav: CV document icon replaced with bold "CV" text.
+NEXT: desktop check; dock overflows on narrow phones (mail button cut); dot-arrows under carousel hidden behind dock.
+
 ## 2026-10-17 — school copy split out (no changes here)
 - For the FED25D assignment (React + Vite SPA on Vercel) the pre-Next.js version was published as a separate repo alexgeho/portfolio-react (~/portfolio-react, see its docs/worklog.md). alexgeho.dev unchanged.
 
