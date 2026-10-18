@@ -169,23 +169,23 @@ export default function Projects({ dict }: { dict: Dict["projects"] }) {
         <div className="projects__header">
           <span className="section-label">{dict.label}</span>
           <div className="projects__header-top">
-            <h2 className="section-title">{dict.title}</h2>
-            <div className="projects__header-actions">
+            <div className="projects__title-row">
+              <h2 className="section-title">{dict.title}</h2>
               <button className="projects__nav" onClick={goPrev} aria-label="Previous project">
                 ‹
               </button>
               <button className="projects__nav" onClick={goNext} aria-label="Next project">
                 ›
               </button>
-              <a
-                href="https://github.com/alexgeho"
-                target="_blank"
-                rel="noreferrer"
-                className="projects__btn-view"
-              >
-                {dict.viewGithub}
-              </a>
             </div>
+            <a
+              href="https://github.com/alexgeho"
+              target="_blank"
+              rel="noreferrer"
+              className="projects__btn-view"
+            >
+              {dict.viewGithub}
+            </a>
           </div>
         </div>
       </div>
